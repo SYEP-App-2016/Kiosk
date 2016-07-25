@@ -1,0 +1,15 @@
+/* .img-responsive{
+  width: 50%;
+  height: 400px;
+} */
+
+.img-thumbnail{
+  width: 11%;
+  height: 200px;
+}
+
+
+.border{
+  border: solid black 1px;
+  height: 600px;
+}
