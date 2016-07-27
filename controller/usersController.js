@@ -1,8 +1,8 @@
-// var passport = require('passport'),
-//     User = require('../models/user'),
-//     express = require('express'),
-//     router = express.Router();
-//     flash = require('connect-flash');
+var passport = require('passport'),
+    User = require('../models/user'),
+    express = require('express'),
+    router = express.Router();
+    flash = require('connect-flash');
 //
 // router.get('/signUp', function(req, res){
 //     res.render('signUp', {message: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'});
@@ -29,4 +29,4 @@
 // //     res.redirect('/');
 // // })
 //
-// module.exports = router;
+module.exports = router;
