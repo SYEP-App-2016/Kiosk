@@ -8,10 +8,9 @@ var express = require('express'),
    methodOverride = require('method-override'),
    LocalStrategy = require('passport-local').Strategy,
    cookie = require('cookie'),
-   passport = require('passport'),
    expressSession = require('express-session'),
    books = require('./controller/booksController'),
-   users = require('./controller/usersController');
+   users = require('./controller/usersController'),
    genres = require('./controller/genresController');
 
 
@@ -32,19 +31,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/vdn.api+json'}));
 app.use(methodOverride());
 
-app.use(expressSession({secret: 'mySecretKey'}));
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use('/', books);
 app.use('/', users);
 app.use('/', genres);
 
 var flash = require('connect-flash');
 app.use(flash());
-
-var initPassport = require('./passport/init');
-initPassport(passport);
 
 
 

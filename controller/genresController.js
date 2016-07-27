@@ -7,18 +7,19 @@ var express = require('express'),
 
 //retrieves documents and sets index
 router.get('/genres', function(req,res){
-  Genre.find({}, function (err,genres){
-    res.render('genres', {
-      list: genres
-    });
-  });
+      Genre.find({}, function (err,genres){
+        res.render('genres', {
+          list: genres
+        });
+      });
 });
 
 router.post('/addGenre', function (req, res){
   var posted = req.body;
   // console.log(posted);
   var newGenre = new Genre({
-    title: posted.title
+    title: posted.title,
+    icon: posted.icon
   });
 
   newGenre.save(function (err){
@@ -29,13 +30,13 @@ router.post('/addGenre', function (req, res){
 });
 
 router.post('/removeGenre', function(req, res){
-  Genre.find({_id: req.body.id}, function(err, genre){
-    if(err) throw err;
-    genre = genre[0];
-    genre.remove(function(err){
+      Genre.find({_id: req.body.id}, function(err, genre){
         if(err) throw err;
-        console.log('Genre removed.');
-    });
+        genre = genre[0];
+        genre.remove(function(err){
+            if(err) throw err;
+            console.log('Genre removed.');
+        });
   });
 
   res.redirect('/genres');

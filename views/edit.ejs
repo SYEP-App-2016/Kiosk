@@ -6,22 +6,42 @@
   <h2>Title:</h2>
   <input type="text" name = "title" placeholder = "title" value ="<%= title %>"/><br>
   <h2>Author:</h2>
-  <input type="text" name = "author" placeholder = "author" value ="<%= author %>"/>
+  <input type="text" name = "author" inputmode="katakana" placeholder = "author" value ="<%= author %>"/>
 <br>
+  <h2>Genre<h2>
+  <select class="form-control optlist">
+    <% for(var i = 0; i < genre.length; i++){ %>
+      <option><%=genre[i].title%></option>
+    <%}%>
+  </select>
 
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="test" name = "test">
-      Test
-    </label>
+  <div class="200">
+    <select class="form-control optlist">
+      <% for(var i = 0; i < genre.length; i++){ %>
+        <option><%=genre[i].title%></option>
+      <%}%>
+    </select>
+    <p class="clear2">X</p>
   </div>
 
+  <div class="300">
+    <select class="form-control optlist 300">
+      <% for(var i = 0; i < genre.length; i++){ %>
+        <option><%=genre[i].title%></option>
+      <%}%>
+    </select>
+    <p class="clear3">X</p>
+  </div>
+
+  <br>
+  <div class="add">+</div>
+  <div class="add2">+</div>
 
   <h2>Summary</h2>
   <textarea class = "form-control" type="text" name = "summary" placeholder = "summary"><%= summary %></textarea>
   <br>
   <h2>pageCount :</h2>
-  <input type="text" name = "pageCount" placeholder = "pageCount" value ="<%= pageCount %>"/>
+  <input type="text"  name = "pageCount" placeholder = "pageCount" value ="<%= pageCount %>"/>
   <h2>copies :</h2>
   <input type="text" name = "copies" placeholder = "copies" value ="<%= copies %>"/>
   <h2>copiesAvailable :</h2>
@@ -34,4 +54,6 @@
   <input type="text" name = "coverType" placeholder = "coverType" value ="<%= coverType %>"/>
   <input type="submit">
 </form>
+
+
 <% include ./footer.ejs %>

@@ -62,6 +62,15 @@ router.get('/book/:id/', function(req,res){
 
 //sets ability to edit
 router.get('/book/:id/edit', function(req,res){
+
+  var o = {g: []};
+
+  Genre.find({}, function(err,genre){
+    if(err) throw err;
+    console.log(genre);
+    o.g = genre;
+  });
+
   Book.find({_id: req.params.id}, function(err, book){
     res.render('edit', {
         list: book,
@@ -73,9 +82,13 @@ router.get('/book/:id/edit', function(req,res){
         copiesAvailable: book[0].copiesAvailable,
         ratings: book[0].ratings,
         publisher: book[0].publisher,
-        coverType: book[0].coverType
+        coverType: book[0].coverType,
+        genre: o.g
     });
   });
+
+console.log(o);
+
 });
 
 
