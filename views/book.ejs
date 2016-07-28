@@ -1,21 +1,5 @@
 <% include ./header.ejs %>
 
-<!-- <h1><%= title %></h1>
-<h2><%= author %></h2>
-<br>
-<p><%= summary %></p>
-<br>
-    <h5>page Count</h5>
-    <p><%= pageCount %>
-    <h5>copies Available</h5>
-    <p><%= copiesAvailable %></p>
-    <h5>ratings</h5>
-    <p><%= ratings %></p>
-    <h5>publisher</h5>
-    <p><%= publisher %></p>
-    <h5>cover Type</h5>
-    <p><%= coverType %></p> -->
-
       <div class="container">
         <div class="row">
 
@@ -23,9 +7,8 @@
          <center>
         <h1><%= title %></h1>
         <h4><%= author %></h4>
-        <h4><a href="/book/<%= list[0].id %>/edit"><button type="submit">Edit</button></a></h4>
           </center>
-          <img src="http://i.huffpost.com/gen/1039678/original.jpg" class="img-responsive" alt="Responsive image"></div>
+          <img src="/assets/example.jpg" class="img-responsive" alt="Responsive image"></div>
           <div class="col-lg-6 col-lg-offset-2">
             <h2>Summary</h2>
             <div class="border"><%= summary %></div>
@@ -46,22 +29,24 @@
         <div class ="container">
         <row>
           <div class="col-md-3">
-              <img src="http://i.huffpost.com/gen/1039678/original.jpg" alt="..." class="img-thumbnail">
+              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
           </div>
           <div class="col-md-3">
-              <img src="http://i.huffpost.com/gen/1039678/original.jpg" alt="..." class="img-thumbnail">
+              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
           </div>
           <div class="col-md-3">
-            <img src="http://i.huffpost.com/gen/1039678/original.jpg" alt="..." class="img-thumbnail">
+            <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
           </div>
           <div class="col-md-3">
-              <img src="http://i.huffpost.com/gen/1039678/original.jpg" alt="..." class="img-thumbnail">
+              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
           </div>
           <div class="col-md-3">
-              <img src="http://i.huffpost.com/gen/1039678/original.jpg" alt="..." class="img-thumbnail">
+              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
           </div>
         </row>
         </div>
       </div>
+
+      <h4><a href="/book/<%= list[0].id %>/edit"><button type="submit">Edit</button></a></h4>
 
 <% include ./footer.ejs %>

@@ -1,42 +1,73 @@
 <% include ./header.ejs %>
-<h1>Edit</h1>
+<center><h1>Edit</h1></center>
+  <form method="POST" action="edit">
 
-<form method="POST" action="edit">
+<div class="jumbotron">
+  <div class="container">
+      <div class="form-group">
+        <lable for="exampleInputTitle">Title:</lable>
+        <input name = "title" type="text" class="form-control" placeholder="Title" value ="<%= title %>">
+      </div>
 
-  <h2>Title:</h2>
-  <input type="text" name = "title" placeholder = "title" value ="<%= title %>"/><br>
-  <h2>Author:</h2>
-  <input type="text" name = "author" inputmode="katakana" placeholder = "author" value ="<%= author %>"/>
-<br>
-  <h2>Genre<h2>
+      <div class="form-group">
+        <lable for="exampleInputAuthor">Author:</lable>
+        <input name = "author" type="text" class="form-control" placeholder="Author" value ="<%= author %>">
+      </div>
 
-  <div class="checkbox">
-    <label>
-      <!-- <input type="checkbox"> <%=genre[0].title%> -->
-    </label>
-  </div>
+      <div class="form-group">
+        <lable for="exampleInputSummary">Summary:</lable>
+        <textarea name = "summary" type="text" class="form-control" placeholder="Summary"><%= summary %></textarea>
+      </div>
 
-  <br>
-  <div class="add">+</div>
-  <div class="add2">+</div>
+      <div class="form-group">
+        <lable for="exampleInputPage Count">Page Count:</lable>
+        <input name = "pageCount" type="number" class="form-control" placeholder="Page Count" value ="<%= pageCount %>">
+      </div>
 
-  <h2>Summary</h2>
-  <textarea class = "form-control" type="text" name = "summary" placeholder = "summary"><%= summary %></textarea>
-  <br>
-  <h2>pageCount :</h2>
-  <input type="text"  name = "pageCount" placeholder = "pageCount" value ="<%= pageCount %>"/>
-  <h2>copies :</h2>
-  <input type="text" name = "copies" placeholder = "copies" value ="<%= copies %>"/>
-  <h2>copiesAvailable :</h2>
-  <input type="text" name = "copiesAvailable" placeholder = "copiesAvailable" value ="<%= copiesAvailable %>"/>
-  <h2>ratings :</h2>
-  <input type="text" name = "ratings" placeholder = "ratings" value ="<%= ratings %>"/>
-  <h2>publisher :</h2>
-  <input type="text" name = "publisher" placeholder = "publisher" value ="<%= publisher %>"/>
-  <h2>coverType :</h2>
-  <input type="text" name = "coverType" placeholder = "coverType" value ="<%= coverType %>"/>
-  <input type="submit">
-</form>
+      <div class="form-group">
+        <lable for="exampleInputCopies">Copies:</lable>
+        <input name = "copies" type="number" class="form-control" placeholder="Copies" value ="<%= copies %>">
+      </div>
+
+      <div class="form-group">
+        <lable for="exampleInputCopies Availabe">Copies Availabe:</lable>
+        <input name = "copiesAvailable" type="number" class="form-control" placeholder="Copies Availabe" value ="<%= copiesAvailable %>">
+      </div>
+
+
+
+      <div class="form-group">
+        <lable for="exampleInputRatings">Ratings:</lable>
+
+        <div class="container-fluid">
+            <div class="pull-left">
+                <select class="form-control" value ="<%= ratings %>" name="ratings">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <lable for="exampleInputSummary">Publisher:</lable>
+        <input name="publisher" type="text" class="form-control" placeholder="Publisher" value="publisher">
+      </div>
+
+      <div class="form-group">
+        <lable for="exampleInputSummary">Cover Type:</lable>
+        <input name = "coverType" type="text" class="form-control" placeholder="Cover Type">
+      </div>
+      <input class="btn btn-default btn-primary" type="submit">
+
+  </form>
+</div>
+</div>
+
+
 
 
 <% include ./footer.ejs %>

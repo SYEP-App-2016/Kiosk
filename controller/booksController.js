@@ -11,13 +11,15 @@ var page = {
 
 //retrieves documents and sets index
 router.get('/', function(req,res){
+
   Book.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
     // console.log(books);
-    res.render('index', {
+    res.render('./library', {
       list: books
     });
   });
+
 });
 
 router.get('/book/:id/', function(req,res){
@@ -87,7 +89,6 @@ router.get('/book/:id/edit', function(req,res){
     });
   });
 
-console.log(o);
 
 });
 
@@ -106,19 +107,14 @@ router.post('/submit', function (req, res){
   // console.log(posted);
   var newBook = new Book({
     title: posted.title,
-    author: posted.author,
-    summary: posted.summary
+    author: posted.author
   });
 
   newBook.save(function (err){
     if(err) throw err;
-    console.log('Book Submitted!');
+    console.log(newBook.author);
   });
     res.redirect('book/'+newBook.id+'/edit');
-
-    Book.find({_id: req.params.id}, function(err, book){
-
-    });
 });
 
 
@@ -126,7 +122,7 @@ router.post('/submit', function (req, res){
 
 router.post('/book/:id/edit', function(req,res){
   Book.find({_id: req.params.id}, function(err, book){
-    res.render('editBook', {
+    res.render('edit', {
       title: book.title,
       author: book.author,
       summary: book.summary,

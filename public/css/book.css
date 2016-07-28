@@ -3,7 +3,7 @@
   height: 400px;
 } */
 
-.img-thumbnail{
+.img-thumbnail2{
   width: 11%;
   height: 200px;
 }
@@ -14,6 +14,85 @@
   height: 600px;
 }
 
-.form-control{
-  width:50%;
+.img-thumbnail2{
+  height: 150px;
+}
+.picture{
+  margin-top: 20%
+}
+.thumbnail{
+  width: 200px;
+}
+.thumbnail{
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border: 0px solid #73AD21;
+.after-box{
+    clear: left;
+}
+
+body {
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.navbar-brand img{
+  width:50px;
+  display: block;
+  margin-top: -14px;
+}
+
+/**/
+
+#carousel-example-generic img{
+  width:300px;
+  height: 100%;
+}
+.carousel-inner{
+  width:100%;
+  max-height: 700px !important;
+  background-color: pink;
+}
+.img-thumbnail3{
+  width: 15%;
+  height: 100%;
+}
+.carousel-control.left {
+  background-image: none;
+  background-color: none;
+}
+.carousel-control.right {
+  background-image: none;
+  background-color: none;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.navbar-brand img {
+  height: 50px;
+  display: block;
+  margin-top: -14px;
+}
+
+body > .container > {
+  padding-top: 60px;
+}
+
+.page-footer {
+  display: block;
+  margin-top: 5em;
+}
+
+.page-footer p {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.page-footer img {
+  width: 25%;
+  margin-left: 5em;
 }
