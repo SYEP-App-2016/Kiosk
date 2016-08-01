@@ -12,7 +12,7 @@ var bookSchema = mongoose.Schema({
   ratings: Number,
   publisher: String,
   coverType: String,
-  genres: [String]
+  genre: [String]
 });
 
 var Book = mongoose.model('Book', bookSchema);

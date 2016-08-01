@@ -19,6 +19,27 @@
         <textarea name = "summary" type="text" class="form-control" placeholder="Summary"><%= summary %></textarea>
       </div>
 
+
+      <!-- <% for(var i = 0; i < genre.length + 1; i++){ %> -->
+        <div id="dvSkillsSection">
+
+        <div class="col-lg-8 col-0" data-input="0">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter genre" name="genre[]"/>
+            <span class="input-group-btn">
+              <button id="btnNewSkill" type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+
+      </div>
+      <!-- <% } %> -->
+
+
+
+
       <div class="form-group">
         <lable for="exampleInputPage Count">Page Count:</lable>
         <input name = "pageCount" type="number" class="form-control" placeholder="Page Count" value ="<%= pageCount %>">

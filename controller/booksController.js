@@ -25,6 +25,13 @@ router.get('/', function(req,res){
 router.get('/book/:id/', function(req,res){
   Book.find({_id: req.params.id}, function(err, book){
     var b = book[0];
+
+    for(var i = 0; i < b.genre.length; i++){
+      if(b.genre[i] == undefined){
+        b.genre[i].remove();
+      }
+    }
+
     if(b.summary == undefined){
       b.summary = "Unconfirmed"
     }
@@ -52,7 +59,8 @@ router.get('/book/:id/', function(req,res){
         copiesAvailable: b.copiesAvailable,
         ratings: b.ratings,
         coverType: b.coverType,
-        publisher: b.publisher
+        publisher: b.publisher,
+        genre: b.genre
     });
 
     console.log(b.pageCount);
@@ -65,28 +73,30 @@ router.get('/book/:id/', function(req,res){
 //sets ability to edit
 router.get('/book/:id/edit', function(req,res){
 
-  var o = {g: []};
-
-  Genre.find({}, function(err,genre){
-    if(err) throw err;
-    console.log(genre);
-    o.g = genre;
-  });
-
   Book.find({_id: req.params.id}, function(err, book){
+
+    var b = book[0];
+
+    for(var i = 0; i < b.genre.length; i++){
+      if(b.genre[i] == undefined){
+        b.genre[i].remove();
+      }
+    }
+
     res.render('edit', {
         list: book,
-        title: book[0].title,
-        author: book[0].author,
-        summary: book[0].summary,
-        pageCount: book[0].pageCount,
-        copies: book[0].copies,
-        copiesAvailable: book[0].copiesAvailable,
-        ratings: book[0].ratings,
-        publisher: book[0].publisher,
-        coverType: book[0].coverType,
-        genre: o.g
+        title: b.title,
+        author: b.author,
+        summary: b.summary,
+        pageCount: b.pageCount,
+        copies: b.copies,
+        copiesAvailable: b.copiesAvailable,
+        ratings: b.ratings,
+        publisher: b.publisher,
+        coverType: b.coverType,
+        genre: b.genre
     });
+    console.log(book[0].genre);
   });
 
 
@@ -138,12 +148,14 @@ router.post('/book/:id/edit', function(req,res){
       copiesAvailable: req.body.copiesAvailable,
       ratings: req.body.ratings,
       publisher: req.body.publisher,
-      coverType: req.body.coverType
+      coverType: req.body.coverType,
+      genre: req.body.genre
     }, function(err, user) {
   if (err) throw err;
 
   // we have the updated user returned to us
       });
+
 
   });
 
