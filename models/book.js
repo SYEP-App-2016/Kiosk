@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+// ADD IMAGE URL
 var bookSchema = mongoose.Schema({
   title: {required : 'true', type : String},
   author: {required : 'true', type : String},
