@@ -96,3 +96,19 @@ body > .container > {
   width: 25%;
   margin-left: 5em;
 }
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+.site {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.site-footer {
+  display: table-row;
+  height: 1px;
+}

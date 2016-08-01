@@ -52,7 +52,8 @@ router.get('/book/:id/', function(req,res){
         copiesAvailable: b.copiesAvailable,
         ratings: b.ratings,
         coverType: b.coverType,
-        publisher: b.publisher
+        publisher: b.publisher,
+        genre: b.genre
     });
 
     console.log(b.pageCount);
@@ -64,14 +65,6 @@ router.get('/book/:id/', function(req,res){
 
 //sets ability to edit
 router.get('/book/:id/edit', function(req,res){
-
-  var o = {g: []};
-
-  Genre.find({}, function(err,genre){
-    if(err) throw err;
-    console.log(genre);
-    o.g = genre;
-  });
 
   Book.find({_id: req.params.id}, function(err, book){
     res.render('edit', {
@@ -85,8 +78,9 @@ router.get('/book/:id/edit', function(req,res){
         ratings: book[0].ratings,
         publisher: book[0].publisher,
         coverType: book[0].coverType,
-        genre: o.g
+        genre: book[0].genre
     });
+    console.log(book[0].genre);
   });
 
 
@@ -138,7 +132,8 @@ router.post('/book/:id/edit', function(req,res){
       copiesAvailable: req.body.copiesAvailable,
       ratings: req.body.ratings,
       publisher: req.body.publisher,
-      coverType: req.body.coverType
+      coverType: req.body.coverType,
+      genre: req.body.genre
     }, function(err, user) {
   if (err) throw err;
 
