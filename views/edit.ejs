@@ -20,12 +20,22 @@
       </div>
 
 
-      <% for(var i = 0; i < genre.length + 1; i++){ %>
-      <div class="form-group">
-        <lable for="exampleInputAuthor">Genre:</lable>
-        <input name = "genre" type="text" class="form-control" placeholder="Genre" value ="<%=genre[i] %>">
+      <!-- <% for(var i = 0; i < genre.length + 1; i++){ %> -->
+        <div id="dvSkillsSection">
+
+        <div class="col-lg-8 col-0" data-input="0">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter genre" name="genre[]"/>
+            <span class="input-group-btn">
+              <button id="btnNewSkill" type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+
       </div>
-      <% } %>
+      <!-- <% } %> -->
 
 
 

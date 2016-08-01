@@ -25,6 +25,13 @@ router.get('/', function(req,res){
 router.get('/book/:id/', function(req,res){
   Book.find({_id: req.params.id}, function(err, book){
     var b = book[0];
+
+    for(var i = 0; i < b.genre.length; i++){
+      if(b.genre[i] == undefined){
+        b.genre[i].remove();
+      }
+    }
+
     if(b.summary == undefined){
       b.summary = "Unconfirmed"
     }
@@ -67,18 +74,27 @@ router.get('/book/:id/', function(req,res){
 router.get('/book/:id/edit', function(req,res){
 
   Book.find({_id: req.params.id}, function(err, book){
+
+    var b = book[0];
+
+    for(var i = 0; i < b.genre.length; i++){
+      if(b.genre[i] == undefined){
+        b.genre[i].remove();
+      }
+    }
+
     res.render('edit', {
         list: book,
-        title: book[0].title,
-        author: book[0].author,
-        summary: book[0].summary,
-        pageCount: book[0].pageCount,
-        copies: book[0].copies,
-        copiesAvailable: book[0].copiesAvailable,
-        ratings: book[0].ratings,
-        publisher: book[0].publisher,
-        coverType: book[0].coverType,
-        genre: book[0].genre
+        title: b.title,
+        author: b.author,
+        summary: b.summary,
+        pageCount: b.pageCount,
+        copies: b.copies,
+        copiesAvailable: b.copiesAvailable,
+        ratings: b.ratings,
+        publisher: b.publisher,
+        coverType: b.coverType,
+        genre: b.genre
     });
     console.log(book[0].genre);
   });
@@ -139,6 +155,7 @@ router.post('/book/:id/edit', function(req,res){
 
   // we have the updated user returned to us
       });
+
 
   });
 
