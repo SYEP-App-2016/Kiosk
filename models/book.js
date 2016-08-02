@@ -17,7 +17,7 @@ var bookSchema = mongoose.Schema({
 
 var Book = mongoose.model('Book', bookSchema);
 
-var hunger = new Book({title:'The Hunger Games', author: 'lady'});
+// var hunger = new Book({title:'The Hunger Games', author: 'lady'});
 
 
 module.exports = Book;
