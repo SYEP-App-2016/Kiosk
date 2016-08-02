@@ -1,5 +1,5 @@
 $(document).ready(function(){
-var a = '<select class="form-control optlist">\n<% for(var i = 0; i < genre.length; i++){\n <option value=""><%=genre[i].title%></option>%><%\n}%>\n</select>';
+var a = '<select class="form-control optlist"><% for(var i = 0; i < genre.length; i++){<option value=""><%=genre[i].title%></option>%><%}%></select>';
 
   $('.200').hide();
   $('.300').hide();
@@ -41,8 +41,7 @@ function createInput(){
   newInput.setAttributeNode(c);
   newInput.setAttributeNode(d);
 
-  newInput.innerHTML = '<div class="input-group"><input type="text" class="form-control" name="skills[]" placeholder="Enter skill"/><span class="input-group-btn"> <button id="btnNewSkill"  type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></span></div>';
-
+  newInput.innerHTML = '<div class="input-group"><input type="text" class="form-control" name="genre[]" placeholder="Enter Genre"/><span class="input-group-btn"> <button id="btnNewSkill"  type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></span></div>';
     var section  = document.getElementById("dvSkillsSection");
 
     section.appendChild(newInput);

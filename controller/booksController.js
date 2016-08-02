@@ -15,6 +15,18 @@ router.get('/', function(req,res){
   Book.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
     // console.log(books);
+    res.render('./index', {
+      list: books
+    });
+  });
+
+});
+
+router.get('/library', function(req,res){
+
+  Book.find({}, function (err,books){
+    if(err){console.log('Books not found??? ' + err);}
+    // console.log(books);
     res.render('./library', {
       list: books
     });
@@ -107,6 +119,18 @@ router.get('/book/:id/edit', function(req,res){
 //sets submit pagee
 router.get('/submit', function(req,res){
   res.render('submit', {title: 'submit a book'});
+
+  // Book.find({}, function(err, user) {
+  //   if (err) throw err;
+  //
+  //   // delete him
+  //   Book.remove(function(err) {
+  //     if (err) throw err;
+  //
+  //     console.log('User successfully deleted!');
+  //   });
+  // });
+
 });
 
 
