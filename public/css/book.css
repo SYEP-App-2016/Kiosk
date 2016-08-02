@@ -90,26 +90,3 @@ html {
   display: table-row;
   height: 1px;
 }
-
-#carousel-example-generic img{
-  width:300px;
-  height: 100%;
-  	}
-.carousel-inner{
-  width:100%;
-  max-height: 700px !important;
-  background-color: pink;
-}
-.img-fluid{
-  width: 15%;
-  height: 100%;
-
-}
-.carousel-control.left {
-  background-image: none;
-  background-color: none;
-}
-.carousel-control.right {
-  background-image: none;
-  background-color: none;
-}
