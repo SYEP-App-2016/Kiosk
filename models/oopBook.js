@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
-    Book = require('./book'),
+    // Book = require('./book'),
     config = {
+        // url: "mongodb://localhost:27017/cypresshills"
         url: "mongodb://localhost:27017/cypresshills"
     };
 
@@ -19,6 +20,7 @@ var studentSchema = new Schema({
 var Student = mongoose.model('Student', studentSchema);
 */
 
+// ADDRESS
 var addressSchema = new Schema({
     address: String,
     city: String,
@@ -26,47 +28,73 @@ var addressSchema = new Schema({
     zipCode: String
 });
 
-var Address = mongoose.model('Address', addressSchema);
+var Address = mongoose.model('address', addressSchema);
 
+// PROFILE
+var profileSchema = new Schema({ firstName: String, lastName: String });
+
+var Profile = mongoose.model('profile', profileSchema);
 
 
 // DATABASE
 // 
 var Database = {};
 
-var Database = function(schema) {
+var Database = function(_schema) {
 
-    this.schema = {};
+    var schema = {};
+    var cn = {};
 
     // console.log(typeof schema);
 
-    if(typeof schema == 'undefined') {
+    if(typeof schema == 'undefined') {y
         console.error("Database Schema not defined");
         return;
     } else {
-        this.schema = schema;
-        // console.log( this. schema );
+        schema = _schema;
+        // console.log( _schema );
     }
+
 
     mongoose.connect(config.url, function(err){
         if(err) {
             console.log('Error Connection to: ' + config.url + '\n' + err);
         } else { 
             console.log('Connection Successful');
-            console.log(mongoose);
         }
     //Database Drop
     // mongoose.connection.db.dropDatabase();
     });
 
+    // console.log(mongoose.connection.db);
+    
     return {
         create: function(obj) { 
-            // this.schema.Book.insert(obj);
+
+            // var s = schema(obj);
+
+            // console.log(s);
+            // console.log(schema);
         },
         select: function(data) { 
-            this.schema = new schema(data);
+            Profile.find({}, function(err, data){
+                console.log(data);
+            });
 
-            console.log(this.schema); 
+            Address.find({}, function(){
+                console.log(data);
+            });
+
+/*
+            Profile.find({}, function(err, data){
+                console.log(data);
+            });
+*/
+/*
+            Address.find({}, function(err, data){
+                // console.log(data);
+            });
+*/  
         },
         update: function(data) { 
         
@@ -78,7 +106,7 @@ var Database = function(schema) {
 }
 
 
-var MongoDB = new Database(Address);
+var MongoDB = new Database(Profile);
 /*
 var b = {
   title: "Macross Plus",
@@ -95,4 +123,9 @@ var b = {
     zipCode: "10010"
 };
 
+
+// MongoDB.create(Profile({firstName: "Demo", lastName: "Trial" }) );
+
 MongoDB.select({});
+
+// console.log( mongoose.connection.db );
