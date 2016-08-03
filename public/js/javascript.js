@@ -16,44 +16,78 @@ var a = '<select class="form-control optlist"><% for(var i = 0; i < genre.length
     $('.300').show();
     console.log('hey what up');
   });
+
+
+  var genre = [
+    "Science Fiction",
+    "Satire",
+    "Drama",
+    "Action and Adventure",
+    "Romance",
+    "Mystery",
+    "Horror",
+    "Self Help",
+    "Health",
+    "Guide",
+    "Travel",
+    "Children's",
+    "Religion, Spirituality & New Age",
+    "Science",
+    "History",
+    "Math",
+    "Anthology",
+    "Poetry",
+    "Encyclopedias",
+    "Dictionary",
+    "Comics / Manga",
+    "Art",
+    "Cookbooks",
+    "Diary",
+    "Journals",
+    "Series",
+    "Trilogy",
+    "Biographies",
+    "Autobiographies",
+    "Fantasy"
+  ];
+
+  console.log(genre.length);
+  console.log( genre.sort() );
+
+  // CAN BE CONVERTED TO D-R-Y
+
+
+  function createGenreOptions(){
+    var l = genre.length,
+        str = "<option>- Select Genre -</option>";
+
+    for(var i = 0; i < l; i++) {
+      str += "<option value='" + i + "'>" + genre[i]+ "</option>";
+    }
+
+    return str;
+  }
+
+
+  // D-R-Y
+  function updateHTML(el, content){
+    $(el).append(content);
+  }
+
+
+  updateHTML("#ddlGenres", createGenreOptions());
+
+
+  // D-R-Y DESIGN PATTERN
+  function clickResults(el, callback){
+    $(el).change(callback);
+  }
+
+  clickResults("#ddlGenres", function(){
+    // $(".dvSkills").append("<span>" + $("#ddlGenres option:selected").text() + ", </span>");
+    $(".dvSkills").append("<input name = 'genre[] 'value='" + $("#ddlGenres option:selected").text() +"'/>");
+
+    $("#hnSkills")[0].value += this.value + ",";
+
+  });
 });
-
-
-// COULD BE CLEANER IN JQUERY
-var inputs = 0;
-
-function createInput(){
-
-  var i = $("#dvSkillsSection div:last-child");
-
-  $("button span:last-child").attr("class", "glyphicon glyphicon-minus");
-
-
-  $("button:last-child").attr("onclick", "removeInput(" + inputs + ")");
-
-  var newInput =  document.createElement("div");
-
-  var c = document.createAttribute("class");
-      c.value = "col-lg-8 div-" + (++inputs);
-  var d = document.createAttribute("data-input");
-      d.value = inputs;
-
-  newInput.setAttributeNode(c);
-  newInput.setAttributeNode(d);
-
-  newInput.innerHTML = '<div class="input-group"><input type="text" class="form-control" name="genre[]" placeholder="Enter Genre"/><span class="input-group-btn"> <button id="btnNewSkill"  type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button></span></div>';
-    var section  = document.getElementById("dvSkillsSection");
-
-    section.appendChild(newInput);
-}
-
-function removeInput(pos) {
-
-  $("#dvSkillsSection div")[pos].remove('div-' + pos);
-
-}
-
-
-
-// var v = $("[name='skills[]']")[4]
-// v.value
