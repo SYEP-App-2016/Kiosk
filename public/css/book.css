@@ -22,32 +22,19 @@
 }
 .thumbnail{
   width: 200px;
-}
-.thumbnail{
-    float: left;
-    width: 200px;
-    height: 300px;
-    margin: 10px;
-    border: 0px solid #73AD21;
+  float: left;
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  border: 0px solid #73AD21;
+
 .after-box{
     clear: left;
 }
 
 body {
-  margin-top: 0px;
-  padding: 0px;
-}
-
-.navbar-brand img{
-  width:50px;
-  display: block;
-  margin-top: -14px;
-}
-
-
-
-body {
-  margin: 0px;
+  margin-top:10%;
+  /*margin: 0px;*/
   padding: 0px;
 }
 

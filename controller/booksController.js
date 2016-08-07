@@ -37,12 +37,12 @@ router.get('/library', function(req,res){
 router.get('/book/:id/', function(req,res){
   Book.find({_id: req.params.id}, function(err, book){
     var b = book[0];
-
-    for(var i = 0; i < b.genre.length; i++){
-      if(b.genre[i] == undefined){
-        b.genre[i].remove();
-      }
-    }
+    //
+    // for(var i = 0; i < b.genre.length; i++){
+    //   if(b.genre[i] == undefined){
+    //     b.genre[i].remove();
+    //   }
+    // }
 
     if(b.summary == undefined){
       b.summary = "Unconfirmed"
@@ -88,12 +88,12 @@ router.get('/book/:id/edit', function(req,res){
   Book.find({_id: req.params.id}, function(err, book){
 
     var b = book[0];
-
-    for(var i = 0; i < b.genre.length; i++){
-      if(b.genre[i] == undefined){
-        b.genre[i].remove();
-      }
-    }
+    //
+    // for(var i = 0; i < b.genre.length; i++){
+    //   if(b.genre[i] == undefined){
+    //     b.genre[i].remove();
+    //   }
+    // }
 
     res.render('edit', {
         list: book,

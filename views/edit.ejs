@@ -20,20 +20,38 @@
       </div>
 
 
-      <!-- <% for(var i = 0; i < genre.length + 1; i++){ %> -->
+<!--
+      <div class="col-lg-8 col-0" data-input="0">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter genre" name="genre[]"/>
+          <span class="input-group-btn">
+            <button id="btnNewSkill" type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+      </div -->
 
-        <div class="col-lg-8 col-0" data-input="0">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Enter genre" name="genre[]"/>
-            <span class="input-group-btn">
-              <button id="btnNewSkill" type="button" class="btn btn-default" aria-label="Left Align" onclick="createInput()">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              </button>
-            </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+<% for(var i = 0; i < genre.length; i++){ %>
+  <p> '<%=genre[i]%>'
+<% } %>
+  </p>
 
-      <!-- <% } %> -->
+  <div class="container">
+    <div class="row">
+
+      <!-- hnSkills WOULD BE HIDDEN TO PROTECT DATA -->
+      <input type="text" name="hnSkills" id="hnSkills" value="" disabled/>
+      <div class="dvSkills"></div>
+      <select id="ddlGenres" name="genre[]" class="form-control">
+      </select>
+
+      <button class="btn btn-default">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
 
 
 
