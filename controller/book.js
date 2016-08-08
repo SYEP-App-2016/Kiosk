@@ -5,6 +5,9 @@ var express = require('express'),
     Book = require('../models/book.js');
     Genre = require('../models/genre.js');
 
+var ObjectId = mongoose.Types.ObjectId;
+
+
 var page = {
   title: "Library Assistant"
 }
@@ -13,26 +16,31 @@ var page = {
 
 // CREATE 
 //sets submit pagee
-router.get('/CREATE', function(req,res){
-  res.render('submit', {
+router.get('/Add', function(req,res){
+  res.render('Book/Add', {
       title: 'Submit a Book'
     });
 });
 
 //saves new books
-router.post('/submit', function (req, res){
+router.post('/Add', function (req, res){
   var posted = req.body;
-  // console.log(posted);
-  var newBook = new Book({
+
+  var book = new Book({
     title: posted.title,
-    author: posted.author
+    author: posted.author,
+    summary: posted.summary,
+    copiesAvailable: posted.copiesAvailable,
+    copies: posted.copiesAvailable,
+    publisher: posted.publisher
   });
 
-  newBook.save(function (err){
+  book.save(function (err){
     if(err) throw err;
-    console.log(newBook.author);
+    
+    res.redirect('Edit/'+ book.id)
   });
-    res.redirect('book/'+newBook.id+'/edit');
+
 });
 
 
@@ -52,13 +60,13 @@ router.get('/', function(req,res){
 });
 
 // RETRIEVE 1
-router.get('/book/:id/', function(req,res){
-  Book.find({_id: req.params.id}, function(err, book){
+router.get('/Details/:id', function(req,res){
+  Book.find({_id: new ObjectId(req.params.id) }, function(err, book){
     var b = book[0];
 
     // CHECK & SET TO DEFAULT IF TYPE IS UNDEFINED
     // SMALLER CODE * 
-    res.render('book', {
+    res.render('Book/detail', {
         list: book,
         title: b.title,
         author: b.author,
@@ -78,7 +86,7 @@ router.get('/book/:id/', function(req,res){
 // UPDATE
 // PARAMETERS / QUERIES ALWAYS LAST IN URL
 // INDUSTRY STANDARD
-router.get('/edit/:id', function(req,res){
+router.get('/Edit/:id', function(req,res){
 
   var o = { 
       g: []
@@ -90,9 +98,10 @@ router.get('/edit/:id', function(req,res){
     o.g = genre;
   });
 
-  Book.find({_id: req.params.id}, function(err, book){
-    res.render('edit', {
+  Book.find( {_id: new ObjectId(req.params.id) }, function(err, book){
+    res.render('Book/edit', {
         list: book,
+        id: req.params.id,
         title: book[0].title,
         author: book[0].author,
         summary: book[0].summary,
@@ -108,36 +117,29 @@ router.get('/edit/:id', function(req,res){
 
 });
 
+// MISSING PAGE COUNT PREVIOUS FORMS 
+
+router.post('/Edit', function(req,res){
 
 
-router.post('/edit/:id', function(req,res){
-  Book.find({_id: req.params.id}, function(err, book){
-    res.render('edit', {
-      title: book.title,
-      author: book.author,
-      summary: book.summary,
-      list: book
-    });
-
-    Book.findOneAndUpdate({ _id: req.params.id }, {
+  Book.findOneAndUpdate( {_id: new ObjectId(req.body.id) }, 
+  {
+    $set: {
       title: req.body.title,
       author: req.body.author,
       summary: req.body.summary,
       pageCount: req.body.pageCount,
-      copies: req.body.copies,
       copiesAvailable: req.body.copiesAvailable,
       ratings: req.body.ratings,
       publisher: req.body.publisher,
       coverType: req.body.coverType
-    }, function(err, user) {
-  if (err) throw err;
+    }
+  }, function(err, user) {
+      if (err) throw err;
 
-  // we have the updated user returned to us
-      });
+      res.redirect('Details/' + req.body.id);
 
   });
-
-  res.redirect('/');
 
 });
 
