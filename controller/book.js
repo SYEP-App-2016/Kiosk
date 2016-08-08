@@ -17,7 +17,7 @@ var page = {
 // CREATE
 //sets submit pagee
 router.get('/Add', function(req,res){
-  res.render('Book/Add', {
+  res.render('Book/add', {
       title: 'Submit a Book'
     });
 });
