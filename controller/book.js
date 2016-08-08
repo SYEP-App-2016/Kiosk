@@ -57,16 +57,16 @@ router.get('/', function(req,res){
     });
   });
 
-  Book.find({}, function(err, book) {
-    if (err) throw err;
-
-    // delete him
-    book.remove(function(err) {
-      if (err) throw err;
-
-      console.log('User successfully deleted!');
-    });
-  });
+  // Book.find({}, function(err, book) {
+  //   if (err) throw err;
+  //
+  //   // delete him
+  //   book.remove(function(err) {
+  //     if (err) throw err;
+  //
+  //     console.log('User successfully deleted!');
+  //   });
+  // });
 
 });
 
