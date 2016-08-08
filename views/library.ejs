@@ -41,7 +41,11 @@
           <div class="row">
             <div class="col-sm-6">
               <a href="/book/details/<%=list[i].id%>" class="thumbnail">
-              <img src="/assets/MissingCover.svg">
+              <% if(img == "" || undefined){ %>
+              <img src="/assets/MissingCover.svu">
+              <% }else{ %>
+              <img src="<%=list[i].img">
+              <%}%>
               </a>
             </div>
             <div class="col-sm-6">
