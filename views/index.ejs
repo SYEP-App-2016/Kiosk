@@ -10,11 +10,23 @@
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
 
-        
+
         <!-- Wrapper for slides -->
         <!-- Dynamic from JS -->
-        <div class="carousel-inner"></div>
-      
+        <div class="carousel-inner">
+          <% for(var i = 0; i < 3; i++){ %>
+            <% if(i === 0){ %>
+            <div class="item active">
+            <% }else{ %>
+              <div class="item">
+            <%}%>
+                <div class="fill" style="background-image:url('/assets/example.jpg');"></div>
+                <div class="carousel-caption"><h2> <%= list[i].title %> </h2><p> <%= list[i].summary %> </p>
+              </div>
+            </div>
+          <%}%>
+        </div>
+
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
@@ -22,16 +34,11 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="icon-next"></span>
         </a>
-      
+
     </header>
 
     <!-- Page Content -->
     <div class="container">
-<<<<<<< HEAD
-      <div class="row">
-        <div class="col-sm-6 col-md-3 col-xs-12 col-lg-2">
-          <img src="assets/example.jpg" alt="..." class="img-fluid">
-=======
 
 
     <!-- RANDOM QUOTE -->
@@ -41,7 +48,6 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
                 </div>
             </div>
->>>>>>> 07bc9114169a0de83fb235c8664b234c641083a4
         </div>
 
     <!-- /RANDOM QUOTE -->
@@ -53,7 +59,7 @@
                     New Releases
                 </h1>
             </div>
-           
+
         </div>
         <!-- /.row -->
 

@@ -6,42 +6,42 @@ function updateHTML(el, context) {
 //
 // HIGHLIGHT
 // LOADED DATA FROM DB
-var spotlight = [ 
-  {
-    title: "Jungle Book",
-    img: "https://lumiere-a.akamaihd.net/v1/images/au_movie_poster_thejunglebook_ca930c48.jpeg?region=0%2C0%2C300%2C450",
-    teaser: "Disney Classic"
-  }, {
-    title: "Shingeki no Kyojin *Attack on Titan*",
-    img: "http://vignette4.wikia.nocookie.net/shingekinokyojin/images/b/b5/No_Regrets_Volume_1.png/revision/latest?cb=20150127135102",
-    teaser: "Awesome Read"
-  }, {
-    title: "Harry Potter: The Cursed Child",
-    img: "https://www.londonboxoffice.co.uk/images/shows/square-poster/resized/250x250/harry-potter-sq1.jpg",
-    teaser: "Follow up to a great series"
-  }
-];
+// var spotlight = [
+//   {
+//     title: "Jungle Book",
+//     img: "https://lumiere-a.akamaihd.net/v1/images/au_movie_poster_thejunglebook_ca930c48.jpeg?region=0%2C0%2C300%2C450",
+//     teaser: "Disney Classic"
+//   }, {
+//     title: "Shingeki no Kyojin *Attack on Titan*",
+//     img: "http://vignette4.wikia.nocookie.net/shingekinokyojin/images/b/b5/No_Regrets_Volume_1.png/revision/latest?cb=20150127135102",
+//     teaser: "Awesome Read"
+//   }, {
+//     title: "Harry Potter: The Cursed Child",
+//     img: "https://www.londonboxoffice.co.uk/images/shows/square-poster/resized/250x250/harry-potter-sq1.jpg",
+//     teaser: "Follow up to a great series"
+//   }
+// ];
 
 // PROCESS DATA
 function loadCarousel(){
   var str = "";
-  
+
   for(var i = 0; i < spotlight.length; i++) {
     str += "";
-      
+
     if(i === 0) {
       str += '<div class="item active">';
     } else {
       str += '<div class="item">';
     }
-    
+
     str += '<div class="fill" style="background-image:url(\'' + spotlight[i].img + '\');"></div>'
          + '<div class="carousel-caption"><h2>' + spotlight[i].title + '</h2><p>' + spotlight[i].teaser + '</p></div></div>';
   }
   return str;
 }
 
-updateHTML(".carousel-inner", loadCarousel());
+// updateHTML(".carousel-inner", loadCarousel());
 
 
 
@@ -64,7 +64,7 @@ var marketing = [{
 // PARSE DATA
 function getMarketing() {
   var str = "";
-  
+
   for(var i = 0; i < marketing.length; i++) {
     str += '<div class="col-md-4"><div class="panel panel-default"><div class="panel-body">'
          + '<img class="img-responsive img-portfolio img-hover" src="' + marketing[i].img + '" />'
@@ -75,7 +75,7 @@ function getMarketing() {
   return str;
 }
 
-updateHTML("#dvMarketing .col-lg-12", getMarketing());
+// updateHTML("#dvMarketing .col-lg-12", getMarketing());
 
 
 

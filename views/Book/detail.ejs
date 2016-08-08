@@ -1,52 +1,90 @@
 <% include ../header.ejs %>
 
-      <div class="container">
-        <div class="row">
+<div class="container">
+<div class="page-header">
+<h1><%=author%><small><%=title%></small></h1>
+</div>
 
-        <div class="col-lg-4">
-         <center>
-        <h1><%= title %></h1>
-        <h4><%= author %></h4>
-          </center>
-          <img src="/assets/example.jpg" class="img-responsive" alt="Responsive image"></div>
-          <div class="col-lg-6 col-lg-offset-2">
-            <h2>Summary</h2>
-            <div class="border"><%= summary %></div>
-          </div>
-        </div>
-        </div>
-      </div>
-     <div class="row">
-      <div class="col-md-4 col-md-offset-3"><h2>Rate it</h2></div>
-    </div>
-      <div class="container">
-      <div class="col-md-6 col-md-offset-9"><h2>Comment</h2></div>
-      </div>
-      <div class="container">
-         <div class="row">
-      <div class="col-md-4 col-md-offset-1"><h1>More Like This</h1></div>
-           </div>
-        <div class ="container">
-        <row>
-          <div class="col-md-3">
-              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
-          </div>
-          <div class="col-md-3">
-              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
-          </div>
-          <div class="col-md-3">
-            <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
-          </div>
-          <div class="col-md-3">
-              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
-          </div>
-          <div class="col-md-3">
-              <img src="/assets/MissingCover.svg" alt="..." class="img-thumbnail">
-          </div>
-        </row>
-        </div>
-      </div>
 
-      <h4><a href="/book/<%= list[0].id %>/edit"><button type="submit">Edit</button></a></h4>
+<ol class="breadcrumb">
+<li><a href="#">Home</a></li>
+<li><a href="#">Library</a></li>
+</ol>
+
+
+<div class="container">
+
+
+<div class="row">
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+  <% if(img == "" || undefined){ %>
+    <img class="pic" src="/assets/MissingCover.svg" class="img-responsive" alt="Responsive image"></div>
+  <%}else{%>
+    <img class="pic" src="<%=img%>" class="img-responsive" alt="Responsive image"></div>
+  <%}%>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+    <h1><%=title%></h1>
+    <h2><%=author%></h2>
+    <h3>Summary</h3>
+    <% if(summary == ""){ %>
+      <p>Summary not available</p>
+    <%}else{%>
+      <p><%=summary%></p>
+    <%}%>
+    <h3>Book Details</h3>
+    <ul>
+      <% if(pageCount == null){ %>
+      <li>Paperback, Page count unavailable</li>
+      <%}else{%>
+      <li>Paperback, <%=pageCount%></li>
+      <%}%>
+    </ul>
+
+</div>
+</div>
+
+
+<div class="page-header">
+
+<h1>Related Books</h1>
+
+</div>
+
+
+<div class="col-xs-3 col-md-3">
+<a href="#" class="thumbnail">
+<img class="thumbnail1" src="https://lumiere-a.akamaihd.net/v1/images/au_movie_poster_thejunglebook_ca930c48.jpeg?region=0%2C0%2C300%2C450" alt="...">
+</a>
+</div>
+
+
+
+<div class="col-xs-3 col-md-3">
+<a href="#" class="thumbnail">
+<img class="thumbnail1" src="https://lumiere-a.akamaihd.net/v1/images/au_movie_poster_thejunglebook_ca930c48.jpeg?region=0%2C0%2C300%2C450" alt="...">
+</a>
+</div>
+
+
+
+<div class="col-xs-3 col-md-3">
+<a href="#" class="thumbnail">
+<img class="thumbnail1" src="https://lumiere-a.akamaihd.net/v1/images/au_movie_poster_thejunglebook_ca930c48.jpeg?region=0%2C0%2C300%2C450" alt="...">
+</a>
+</div>
+
+
+<div class="col-xs-3 col-md-3">
+<a href="#" class="thumbnail">
+<img class="thumbnail1" src="https://lumiere-a.akamaihd.net/v1/images/au_movie_poster_thejunglebook_ca930c48.jpeg?region=0%2C0%2C300%2C450" alt="...">
+</a>
+</div>
+</div>
+<hr>
+
+
+
+      <h4><a href="/book/edit/<%= list[0].id %>"><button type="submit">Edit</button></a></h4>
 
 <% include ../footer.ejs %>

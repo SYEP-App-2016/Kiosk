@@ -3,6 +3,7 @@ var express = require('express'),
     router = express.Router(),
     database = require('../config/database.js'),
     Genre = require('../models/genre.js');
+    Book = require('../models/book.js')
 
 
 /*
@@ -10,7 +11,14 @@ var express = require('express'),
 */
 
 router.get('/', function(req, res){
-    res.render('index');
+    Book.find({}, function (err,books){
+      console.log(books);
+      if(err){console.log('Books not found??? ' + err);}
+      // console.log(books);
+      res.render('./index', {
+        list: books
+      });
+    });
 });
 
 

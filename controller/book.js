@@ -12,9 +12,9 @@ var page = {
   title: "Library Assistant"
 }
 
-// CRUD 
+// CRUD
 
-// CREATE 
+// CREATE
 //sets submit pagee
 router.get('/Add', function(req,res){
   res.render('Book/Add', {
@@ -37,7 +37,7 @@ router.post('/Add', function (req, res){
 
   book.save(function (err){
     if(err) throw err;
-    
+
     res.redirect('Edit/'+ book.id)
   });
 
@@ -63,9 +63,9 @@ router.get('/', function(req,res){
 router.get('/Details/:id', function(req,res){
   Book.find({_id: new ObjectId(req.params.id) }, function(err, book){
     var b = book[0];
-
+    console.log("img : " + b.img);
     // CHECK & SET TO DEFAULT IF TYPE IS UNDEFINED
-    // SMALLER CODE * 
+    // SMALLER CODE *
     res.render('Book/detail', {
         list: book,
         title: b.title,
@@ -76,6 +76,7 @@ router.get('/Details/:id', function(req,res){
         ratings: typeof b.ratings !== 'undefined' ? b.ratings : 'n/a',
         coverType: typeof b.coverType !== 'undefined' ? b.coverType : 'n/a',
         publisher: typeof b.publisher !== 'undefined' ? b.publisher : 'n/a',
+        img:  typeof b.img !== 'undefined' ? b.img : 'n/a',
         genre: b.genre
     });
 
@@ -88,7 +89,7 @@ router.get('/Details/:id', function(req,res){
 // INDUSTRY STANDARD
 router.get('/Edit/:id', function(req,res){
 
-  var o = { 
+  var o = {
       g: []
     };
 
@@ -106,6 +107,7 @@ router.get('/Edit/:id', function(req,res){
         author: book[0].author,
         summary: book[0].summary,
         pageCount: book[0].pageCount,
+        img: book[0].img,
         copies: book[0].copies,
         copiesAvailable: book[0].copiesAvailable,
         ratings: book[0].ratings,
@@ -117,12 +119,12 @@ router.get('/Edit/:id', function(req,res){
 
 });
 
-// MISSING PAGE COUNT PREVIOUS FORMS 
+// MISSING PAGE COUNT PREVIOUS FORMS
 
 router.post('/Edit', function(req,res){
 
 
-  Book.findOneAndUpdate( {_id: new ObjectId(req.body.id) }, 
+  Book.findOneAndUpdate( {_id: new ObjectId(req.body.id) },
   {
     $set: {
       title: req.body.title,
@@ -132,7 +134,8 @@ router.post('/Edit', function(req,res){
       copiesAvailable: req.body.copiesAvailable,
       ratings: req.body.ratings,
       publisher: req.body.publisher,
-      coverType: req.body.coverType
+      coverType: req.body.coverType,
+      img: req.body.img
     }
   }, function(err, user) {
       if (err) throw err;

@@ -13,6 +13,7 @@
 /* TEMPLATE */
 body {
      /* padding-top: 50px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+     margin-top:20px;
 }
 
 .img-portfolio {
@@ -91,16 +92,14 @@ footer {
     }
 }
 
-<<<<<<< HEAD
-.img-fluid{
-  width:50px;
-  height:100px;
-}
-=======
 
 .panel-body .img-responsive {
   max-height: 175px;
   margin: 0 auto;
   display: block;
 }
->>>>>>> 07bc9114169a0de83fb235c8664b234c641083a4
+
+.pic {
+  width: 550px;
+  height: 400px;
+}
