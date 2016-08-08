@@ -20,7 +20,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-app.use(express.static(__dirname+"/public"));
+// app.use(express.static(__dirname + "/public"));
+app.use( express.static(__dirname + '/public') );
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended': 'true'}));
 app.use(bodyParser.json());
@@ -28,10 +29,13 @@ app.use(bodyParser.json({type:'application/vdn.api+json'}));
 app.use(methodOverride());
 
 
-app.use('/', require('./controller/index'))
+app.use('/', require('./controller/index'));
 app.use('/Book', require('./controller/book'));
 app.use('/User', require('./controller/user'));
 app.use('/Genre', require('./controller/genre'));
+
+// ADMINISTRATION SECTION
+app.use('/Admin', require('./controller/admin'));
 
 var flash = require('connect-flash');
 app.use(flash());
