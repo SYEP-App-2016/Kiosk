@@ -77,3 +77,8 @@ html {
   display: table-row;
   height: 1px;
 }
+
+.img-fluid{
+  width:50px;
+  height:100px;
+}

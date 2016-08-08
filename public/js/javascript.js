@@ -86,12 +86,13 @@ function createGenreOptions(){
 
 // EVENT LISTENER
 clickResults("#ddlGenres", function(){
+
+  console.log( $("#ddlGenres option:selected").text() );
   // PRINT GENRES IN DIV
-  $(".dvSkills").append("<input name='genre' value='"+$("#ddlGenres option:selected").text() + "' style='display: none;'/>");
+  $(".dvSkills").append("<input name='genre[]' value='"+$("#ddlGenres option:selected").text() + "' style='display: none;' />");
 
   // GET NUMBER VALUE / POSITION IN ARRAY
-  $("#hnSkills")[0].value += this.value + ",";
-
+  // $("#hnSkills")[0].value += this.value + ",";
 });
 
 
