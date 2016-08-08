@@ -75,7 +75,7 @@ function getMarketing() {
   return str;
 }
 
-// updateHTML("#dvMarketing .col-lg-12", getMarketing());
+updateHTML("#dvMarketing .col-lg-12", getMarketing());
 
 
 
