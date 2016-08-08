@@ -1,79 +1,99 @@
- .img-responsive{
-  width: 50%;
-  height: 400px;
+.quote {
+    font-family: "Arizonia";
+	font-size: 36px;
+	font-style: normal;
+	font-variant: normal;
+    margin-top: 1.2em;
 }
 
-.img-thumbnail2{
-  width: 11%;
-  height: 200px;
+.tbSmallerWidth {
+    width: 125px;
 }
 
-
-.border{
-  border: solid black 1px;
-  height: 600px;
-}
-
-.img-thumbnail2{
-  height: 150px;
-}
-.picture{
-  margin-top: 20%
-}
-.thumbnail{
-  width: 200px;
-  float: left;
-  width: 200px;
-  height: 300px;
-  margin: 10px;
-  border: 0px solid #73AD21;
-
-.after-box{
-    clear: left;
-}
-
+/* TEMPLATE */
 body {
-  margin-top:10%;
-  /*margin: 0px;*/
-  padding: 0px;
+     /* padding-top: 50px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
-.navbar-brand img {
-  height: 50px;
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+
+header.carousel {
+    height: 50%;
+}
+
+header.carousel .item,
+header.carousel .item.active,
+header.carousel .carousel-inner {
+    height: 100%;
+}
+
+header.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+
+.panel-body .img-responsive {
+  max-height: 175px;
+  margin: 0 auto;
   display: block;
-  margin-top: -14px;
-}
-
-body > .container > {
-  padding-top: 60px;
-}
-
-.page-footer {
-  display: block;
-  margin-top: 5em;
-}
-
-.page-footer p {
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-.page-footer img {
-  width: 25%;
-  margin-left: 5em;
-}
-
-html {
-  height: 100%;
-  overflow: hidden;
-}
-
-.site {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-
-.site-footer {
-  display: table-row;
-  height: 1px;
 }
