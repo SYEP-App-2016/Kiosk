@@ -87,7 +87,7 @@ router.get('/Details/:id', function(req,res){
         ratings: typeof b.ratings !== 'undefined' ? b.ratings : 'n/a',
         coverType: typeof b.coverType !== 'undefined' ? b.coverType : 'n/a',
         publisher: typeof b.publisher !== 'undefined' ? b.publisher : 'n/a',
-        img:  typeof b.img !== 'undefined' ? b.img : 'n/a',
+        img:  typeof b.img !== 'undefined' ? b.img : '/assets/MissingCover.svu',
         genre: b.genre
     });
 
