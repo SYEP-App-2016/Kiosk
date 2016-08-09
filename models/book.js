@@ -13,6 +13,7 @@ var bookSchema = mongoose.Schema({
   copiesAvailable: { required: true, type: Number },
   ratings: Number,
   publisher: String,
+
   coverType: String,
   genre: [String]
 });
