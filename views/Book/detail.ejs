@@ -28,11 +28,12 @@
     <h2><%=author%></h2>
 
     <small>
-    <%for(var i = 0; i < genre.length; i++){%>
+    <%for(var i = 1; i < genre.length; i++){%>
     <%=genre[i]%>
+    -
     <%}%>
     </small>
-    
+
     <h3>Summary</h3>
     <% if(summary == ""){ %>
       <p>Summary not available</p>
