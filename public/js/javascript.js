@@ -1,21 +1,4 @@
 $(document).ready(function(){
-var a = '<select class="form-control optlist"><% for(var i = 0; i < genre.length; i++){<option value=""><%=genre[i].title%></option>%><%}%></select>';
-
-  $('.200').hide();
-  $('.300').hide();
-  $('.add2').hide();
-
-  $('.add').click(function(){
-    $('.200').show();
-    $(this).hide();
-    $('.add2').show();
-    console.log('what the fuck');
-  });
-
-  $('.add2').click(function(){
-    $('.300').show();
-    console.log('hey what up');
-  });
 
 
   function updateHTML(el, content){
@@ -98,6 +81,10 @@ clickResults("#ddlGenres", function(){
 
 // FIND BY CLASS / ID AND SET CONTENT
 updateHTML("#ddlGenres", createGenreOptions());
-
+            $('.menu-btn').click(function(){
+                $('nav').toggleClass('open');
+                $(this).toggleClass('close-btn');
+                $('.c2').toggle();
+            });
 
 });

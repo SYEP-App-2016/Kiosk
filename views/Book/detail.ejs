@@ -95,10 +95,12 @@
 
       <h4><a href="/book/edit/<%= list[0].id %>"><button type="submit">Edit</button></a></h4>
       <form>
-      <input name="title" type="String" class="form-control" value="<%=title%>" style='display: none;'/>
-      <input name="author" type="String" class="form-control" value="<%=author%>" style='display: none;'/>
-      <input name="desc" type="String" class="form-control" value="<%=summary%>" style='display: none;'/>
-      <input class="btn btn-default btn-warning" type="submit" value="Checkout">
+        <input name="title" type="String" class="form-control" value="<%=title%>" style='display: none;'/>
+        <input name="author" type="String" class="form-control" value="<%=author%>" style='display: none;'/>
+        <input name="desc" type="String" class="form-control" value="<%=summary%>" style='display: none;'/>
+        <input class="btn btn-default btn-warning" type="submit" value="Checkout">
       </form>
+
+
 
 <% include ../footer.ejs %>

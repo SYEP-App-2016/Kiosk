@@ -33,6 +33,7 @@ app.use('/', require('./controller/index'));
 app.use('/Book', require('./controller/book'));
 app.use('/User', require('./controller/user'));
 app.use('/Genre', require('./controller/genre'));
+app.use('/Checkout', require('./controller/checkout'));
 
 // ADMINISTRATION SECTION
 app.use('/Admin', require('./controller/admin'));

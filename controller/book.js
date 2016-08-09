@@ -2,7 +2,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router(),
     database = require('../config/database.js'),
-    Book = require('../models/book.js');
+    Book = require('../models/book.js'),
     Genre = require('../models/genre.js');
 
 var ObjectId = mongoose.Types.ObjectId;
@@ -72,9 +72,15 @@ router.get('/', function(req,res){
 
 // RETRIEVE 1
 router.get('/Details/:id', function(req,res){
+
+  // Checkout.find({}, function (err,books){
+  //   if(err){console.log('Books not found??? ' + err);}
+  //   console.log(books);
+  // });
+
   Book.find({_id: new ObjectId(req.params.id) }, function(err, book){
     var b = book[0];
-    console.log("genre : " + b.genre);
+    // console.log("genre : " + b.genre);
     // typeof b.genre[i] !==  ? b.summary : 'n/a'
 
     // CHECK & SET TO DEFAULT IF TYPE IS UNDEFINED
