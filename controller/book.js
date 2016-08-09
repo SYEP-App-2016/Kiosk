@@ -74,7 +74,9 @@ router.get('/', function(req,res){
 router.get('/Details/:id', function(req,res){
   Book.find({_id: new ObjectId(req.params.id) }, function(err, book){
     var b = book[0];
-    console.log("img : " + b.img);
+    console.log("genre : " + b.genre);
+    // typeof b.genre[i] !==  ? b.summary : 'n/a'
+
     // CHECK & SET TO DEFAULT IF TYPE IS UNDEFINED
     // SMALLER CODE *
     res.render('Book/detail', {
@@ -100,15 +102,15 @@ router.get('/Details/:id', function(req,res){
 // INDUSTRY STANDARD
 router.get('/Edit/:id', function(req,res){
 
-  var o = {
-      g: []
-    };
-
-  Genre.find({}, function(err,genre){
-    if(err) throw err;
-    console.log(genre);
-    o.g = genre;
-  });
+  // var o = {
+  //     g: []
+  //   };
+  //
+  // Genre.find({}, function(err,genre){
+  //   if(err) throw err;
+  //   console.log(genre);
+  //   o.g = genre;
+  // });
 
   Book.find( {_id: new ObjectId(req.params.id) }, function(err, book){
     res.render('Book/edit', {
@@ -124,7 +126,7 @@ router.get('/Edit/:id', function(req,res){
         ratings: book[0].ratings,
         publisher: book[0].publisher,
         coverType: book[0].coverType,
-        genre: o.g
+        genre: book[0].genre
     });
   });
 
@@ -146,7 +148,8 @@ router.post('/Edit', function(req,res){
       ratings: req.body.ratings,
       publisher: req.body.publisher,
       coverType: req.body.coverType,
-      img: req.body.img
+      img: req.body.img,
+      genre: req.body.genre
     }
   }, function(err, user) {
       if (err) throw err;
