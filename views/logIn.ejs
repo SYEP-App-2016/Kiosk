@@ -3,12 +3,16 @@
 <h1>Log in</h1>
 
 
-<form method="POST" action="login">
+<%for(var i = 0; i < list.length; i++){%>
+  <%=list[i].osis%> , 
+<%}%>
+
+<!-- <form method="POST" action="login">
   <input type="text" name = "email" placeholder = "email" />
   <input type="text" name = "password" placeholder = "password"/>
   <br>
 
   <input type="submit"></input>
-</form>
+</form> -->
 
 <% include ./footer.ejs %>

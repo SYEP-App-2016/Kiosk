@@ -1,10 +1,46 @@
 var passport = require('passport'),
     User = require('../models/user'),
     express = require('express'),
-    router = express.Router();
+    router = express.Router(),
     flash = require('connect-flash');
 
-// Profile Template 
+router.get('/Login', function(req, res){
+
+  User.find({}, function (err,users){
+    if(err){console.log('users not found??? ' + err);}
+    // console.log(users);
+    res.render('./login', {
+      list: users
+    });
+  });
+});
+
+router.get('/Signup', function (req, res){
+  res.render('signup', {
+      title: 'Submit a user'
+  });
+});
+
+router.post('/Signup', function (req, res){
+  var posted = req.body;
+
+  var newUser = new User({
+    first: posted.first,
+    last: posted.last,
+    osis: posted.osis
+  });
+
+
+
+  newUser.save(function (err){
+    if(err) throw err;
+
+    res.redirect('/user/login');
+  });
+
+});
+
+// Profile Template
 /*
 var profile = {
     OSIS: 0
