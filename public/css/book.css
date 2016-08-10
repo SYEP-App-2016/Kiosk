@@ -109,3 +109,9 @@ footer {
   width: 550px;
   height: 400px;
 }
+
+#barcode{
+  width:100%;
+  height:40px;
+  font-size: 108px;
+}

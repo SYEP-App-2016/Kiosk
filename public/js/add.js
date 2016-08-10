@@ -15,7 +15,7 @@ var v;
       console.log(chars.length);
 
       console.log(e.which + ":" + chars.join("|"));
-      var isbn = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + $("#barcode").val();
+      var isbn = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + $("#barcode").val() + "&key=AIzaSyDOT2-jMtatkBgfVLqSNrJ-angfpNbP2c4";
       $.getJSON(isbn, function(data) {
 
         var a = data.items[0],
@@ -67,7 +67,7 @@ var v;
 $("#barcode").keypress(function(e){
     if ( e.which === 13 ) {
         console.log("Prevent form submit.");
-        // e.preventDefault();
+        e.preventDefault();
     }
 });
 
