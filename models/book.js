@@ -10,10 +10,9 @@ var bookSchema = mongoose.Schema({
   summary: String,
   pageCount: Number,
   copies: Number,
-  copiesAvailable: { required: true, type: Number },
+  copiesAvailable: Number,
   ratings: Number,
   publisher: String,
-
   coverType: String,
   genre: [String]
 });

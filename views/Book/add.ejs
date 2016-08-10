@@ -6,34 +6,35 @@
 
         <form method="POST" action="Add">
 
-            <div class="row">
+            <input id="barcode" type="text" placeholder="barcode scan" style="width: 200px;"/>
+
+             <div class="row">
                 <div class="form-group">
                     <label for="exampleInputTitle">Title:</label>
-                    <input name = "title" type="text" class="form-control" placeholder="Title">
+                    <input id = "title" name = "title" type="text" class="form-control" placeholder="Title">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputAuthor">Author:</label>
-                    <input name = "author" type="text" class="form-control" placeholder="Author">
+                    <input id = "author" name = "author" type="text" class="form-control" placeholder="Author">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputSummary">Summary:</label>
-                    <textarea name="summary" type="text" class="form-control" placeholder="Summary"></textarea>
+                    <textarea id = "summary" name="summary" type="text" class="form-control" placeholder="Summary"></textarea>
                 </div>
 
             </div>
 
-            <!-- ROW FOR SMALLER TB'S -->
             <div class="row">
                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                     <label for="copiesAvailable">Number of Copies</label>
-                    <input name="copiesAvailable" type="number" class="form-control" placeholder="##" />
+                    <input name="copiesAvailable" type="number" class="form-control" placeholder="##" value="1"/>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-12 col-md-4">
                     <label for="exampleInputSummary">Cover Type:</label>
-                    <select name ="coverType" class="form-control">
+                    <select name ="coverType" class="form-control" disabled>
                     </select>
                 </div>
 
@@ -42,7 +43,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputSummary">Publisher:</label>
-                    <input name="publisher" type="text" class="form-control" placeholder="Publisher" value="publisher">
+                    <input id = "publisher" name="publisher" type="text" class="form-control" placeholder="Publisher">
                 </div>
 
                 <div> </div>

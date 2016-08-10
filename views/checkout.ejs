@@ -1,5 +1,16 @@
 <% include ./header.ejs %>
 
+<div class="row">
+  <%for(var i = 0; i < list.length; i++){%>
+    <div class="col-lg-4"><%=list[i].title%></div>
+    <div class="col-lg-8">
+    <p> <%=list[i].checkedOut%> - <%=list[i].checkedIn%></p>
+    </div>
+  <%}%>
+</div>
+
+
+
 <form method="POST" action = "Checkout">
   <input name="title" type="String" class="form-control" value="Hunger game" style='display: none;'/>
   <input name="author" type="String" class="form-control" value="Suzzane" style='display: none;'/>
