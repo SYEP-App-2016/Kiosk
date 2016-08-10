@@ -67,7 +67,7 @@ var v;
 $("#barcode").keypress(function(e){
     if ( e.which === 13 ) {
         console.log("Prevent form submit.");
-        e.preventDefault();
+        // e.preventDefault();
     }
 });
 
