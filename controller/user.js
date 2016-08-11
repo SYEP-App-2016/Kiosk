@@ -4,12 +4,12 @@ var passport = require('passport'),
     router = express.Router(),
     flash = require('connect-flash');
 
-router.get('user/login', function(req, res){
+router.get('/Login', function(req, res){
 
   User.find({}, function (err,users){
     if(err){console.log('users not found??? ' + err);}
     // console.log(users);
-    res.render('./login', {
+    res.render('./logIn', {
       list: users
     });
   });
@@ -35,7 +35,7 @@ router.post('/Signup', function (req, res){
   newUser.save(function (err){
     if(err) throw err;
 
-    res.redirect('/user/login');
+    res.redirect('/Login');
   });
 
 });
