@@ -31,39 +31,41 @@ var v;
             genre = info.categories,
             image = info.imageLinks,
             thumbnail = image.thumbnail,
-            sThumbnail = image.smallThumbnail,
-            osis = $("#barcode").val();
-
+            sThumbnail = image.smallThumbnail;
 
         $("#title").val(title);
         $("#author").val(author);
         $("#summary").val(description);
         $("#publisher").val(publisher);
-        $("#osis").val(osis);
-
 
       });
 
-        if (pressed == false) {
+      var osis = $(".osis").val(),
+          cid = $(".cid").val();
 
-            setTimeout(function(){
+      $("#osis").val(osis);
+      $("#cid").val(cid);
 
-                if (chars.length >= 10) {
-
-                  v = chars.join("");
-
-                    var barcode = chars.join("");
-
-                    console.log("Barcode Scanned: " + barcode);
-
-                  console.log("??:" +v);
-                  $("#barcode").val(barcode);
-                }
-                $("#barcode").val("");
-                chars = [];
-                pressed = false;
-            },400);
-        }
+      // if (pressed == false) {
+      //
+      //   setTimeout(function(){
+      //
+      //       if (chars.length >= 10) {
+      //
+      //         v = chars.join("");
+      //
+      //           var barcode = chars.join("");
+      //
+      //           console.log("Barcode Scanned: " + barcode);
+      //
+      //         console.log("??:" +v);
+      //         $("#barcode").val(barcode);
+      //       }
+      //       $("#barcode").val("");
+      //       chars = [];
+      //       pressed = false;
+      //   },400);
+      // }
 
         pressed = true;
     });

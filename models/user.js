@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 var userSchema = mongoose.Schema({
   first: String,
   last: String,
-  osis: String
+  osis: String,
+  cid: String
 });
 
 var User = mongoose.model('User', userSchema);

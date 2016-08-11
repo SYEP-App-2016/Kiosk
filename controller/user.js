@@ -27,7 +27,8 @@ router.post('/Signup', function (req, res){
   var newUser = new User({
     first: posted.first,
     last: posted.last,
-    osis: posted.osis
+    osis: posted.osis,
+    cid: posted.cid
   });
 
 
@@ -35,11 +36,23 @@ router.post('/Signup', function (req, res){
   newUser.save(function (err){
     if(err) throw err;
 
-    res.redirect('/Login');
+    res.redirect('/user/Login');
   });
 
 });
 
+
+router.post('/clearAcc', function (req,res){
+  User.find({}, function(err, user) {
+    if (err) throw err;
+
+    // delete him
+    User.remove(function(err) {
+      if (err) throw err;
+      res.redirect('./login');
+    });
+  });
+});
 // Profile Template
 /*
 var profile = {

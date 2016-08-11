@@ -9,7 +9,7 @@ var express = require('express'),
 
 /*
 // CREATE
-GET.CREATE ?? 
+GET.CREATE ??
 */
 
 router.post('/Add', function (req, res){
@@ -31,11 +31,11 @@ router.post('/Add', function (req, res){
 // RETRIEVE ALL
 //retrieves documents and sets index
 router.get('/', function(req,res){
-      Genre.find({}, function (err,genres){
-        res.render('genres', {
-          list: genres
-        });
+    Genre.find({}, function (err,genres){
+      res.render('genres', {
+        list: genres
       });
+    });
 });
 
 

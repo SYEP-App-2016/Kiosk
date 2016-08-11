@@ -2,11 +2,13 @@
 
 <h1>Log in</h1>
 
-
-<%for(var i = 0; i < list.length; i++){%>
-  <%=list[i].osis%> , 
-<%}%>
-
+<ol>
+  <%for(var i = 0; i < list.length; i++){%>
+    <li>
+    [<%=list[i].osis%> | <%=list[i].cid%>],
+    </li>
+  <%}%>
+</ol>
 <!-- <form method="POST" action="login">
   <input type="text" name = "email" placeholder = "email" />
   <input type="text" name = "password" placeholder = "password"/>
