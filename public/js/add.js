@@ -37,6 +37,8 @@ var v;
         $("#author").val(author);
         $("#summary").val(description);
         $("#publisher").val(publisher);
+        $("#image").val(thumbnail);
+        $("#genre").val(genre);
 
       });
 

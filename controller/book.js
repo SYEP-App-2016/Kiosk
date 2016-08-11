@@ -32,7 +32,9 @@ router.post('/Add', function (req, res){
     summary: posted.summary,
     copiesAvailable: posted.copiesAvailable,
     copies: posted.copiesAvailable,
-    publisher: posted.publisher
+    publisher: posted.publisher,
+    genre: posted.genre,
+    img: posted.img
   });
 
 
