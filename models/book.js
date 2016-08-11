@@ -6,6 +6,7 @@ var bookSchema = mongoose.Schema({
   acc_id: mongoose.Schema.Types.ObjectId,
   title: { required : 'true', type : String},
   img: String,
+  sImg: String,
   author: { required : 'true', type : String},
   summary: String,
   pageCount: Number,
@@ -14,7 +15,7 @@ var bookSchema = mongoose.Schema({
   ratings: Number,
   publisher: String,
   coverType: String,
-  genre: [String]
+  genre: String
 });
 
 var Book = mongoose.model('Book', bookSchema);

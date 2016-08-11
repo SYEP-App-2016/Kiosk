@@ -38,6 +38,8 @@ var v;
         $("#summary").val(description);
         $("#publisher").val(publisher);
         $("#image").val(thumbnail);
+        $("#pageCount").val(pageCount);
+        $("#sImage").val(sThumbnail);
         $("#genre").val(genre);
 
       });

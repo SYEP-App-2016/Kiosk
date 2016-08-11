@@ -22,8 +22,13 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleInputAuthor">Cover:</label>
+            <label for="exampleInputAuthor">Thumbnail:</label>
             <input name="img" type="text" class="form-control" placeholder="Image URL" value ="<%=img%>">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputAuthor">Small Thumbnail:</label>
+            <input name="sImg" type="text" class="form-control" placeholder="Image URL" value ="<%=sImg%>">
         </div>
 
         <div class="form-group">
@@ -37,14 +42,7 @@
 
         <!-- DYNAMIC BEGINS -->
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <% for(var i = 0; i < genre.length; i++){ %>
-                <p> '<%=genre[i]%>' </p>
-            <% } %>
-            <div>
-                <select id="ddlGenres" name="genre[]" class="form-control" style="width: 175px;"></select>
-            </div>
-            <input type="text" name="hnSkills" id="hnSkills" value="" disabled/>
-            <div class="dvSkills"></div>
+                <p> '<%=genre%>' - </p>
         </div>
         <!-- DYNAMIC ENDS -->
 

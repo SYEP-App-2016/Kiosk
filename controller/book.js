@@ -34,7 +34,9 @@ router.post('/Add', function (req, res){
     copies: posted.copiesAvailable,
     publisher: posted.publisher,
     genre: posted.genre,
-    img: posted.img
+    img: posted.img,
+    sImg: posted.sImg,
+    pageCount: posted.pageCount
   });
 
 
@@ -66,11 +68,6 @@ router.get('/', function(req,res){
 
 // RETRIEVE 1
 router.get('/Details/:id', function(req,res){
-
-  // Checkout.find({}, function (err,books){
-  //   if(err){console.log('Books not found??? ' + err);}
-  //   console.log(books);
-  // });
 
   Book.find({_id: new ObjectId(req.params.id) }, function(err, book){
     var b = book[0];
@@ -121,6 +118,7 @@ router.get('/Edit/:id', function(req,res){
         summary: book[0].summary,
         pageCount: book[0].pageCount,
         img: book[0].img,
+        sImg: book[0].sImg,
         copies: book[0].copies,
         copiesAvailable: book[0].copiesAvailable,
         ratings: book[0].ratings,
@@ -149,6 +147,7 @@ router.post('/Edit', function(req,res){
       publisher: req.body.publisher,
       coverType: req.body.coverType,
       img: req.body.img,
+      sImg: req.body.sImg,
       genre: req.body.genre
     }
   }, function(err, user) {
@@ -158,6 +157,22 @@ router.post('/Edit', function(req,res){
 
   });
 
+});
+
+router.get('/index', function(req,res){
+  res.render('./_index');
+});
+
+router.post('/index', function (req,res){
+  Book.find({}, function(err, book) {
+    if (err) throw err;
+
+    // delete him
+    Book.remove(function(err) {
+      if (err) throw err;
+      res.redirect('/work');
+    });
+  });
 });
 
 

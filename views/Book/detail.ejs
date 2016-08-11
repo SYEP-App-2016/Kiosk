@@ -7,8 +7,8 @@
 
 
 <ol class="breadcrumb">
-<li><a href="#">Home</a></li>
-<li><a href="#">Library</a></li>
+    <%=genre%>
+
 </ol>
 
 
@@ -18,9 +18,9 @@
 <div class="row">
 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
   <% if(img == "" || undefined){ %>
-    <img class="pic" src="/assets/MissingCover.svg" class="img-responsive" alt="Responsive image"></div>
+    <img class="pic img-responsive" src="/assets/MissingCover.svg" alt="Responsive image"></div>
   <%}else{%>
-    <img class="pic" src="<%=img%>" class="img-responsive" alt="Responsive image"></div>
+    <img class="pic img-responsive" src="<%=img%>" alt="Responsive image"></div>
   <%}%>
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 
@@ -28,10 +28,7 @@
     <h2><%=author%></h2>
 
     <small>
-    <%for(var i = 1; i < genre.length; i++){%>
-    <%=genre[i]%>
-    -
-    <%}%>
+
     </small>
 
     <h3>Summary</h3>

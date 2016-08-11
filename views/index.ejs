@@ -20,12 +20,15 @@
             <% }else{ %>
               <div class="item">
             <%}%>
-                <% if(list[i].img == "" || undefined){ %>
-                <div class="fill" style="background-image:url('/assets/example.jpg');"></div>
-                <%}else{%>
-                <div class="fill" style="background-image:url('<%=list[i].img%>');"></div>
-                <%}%>
-                <div class="carousel-caption"><h2> <%= list[i].title %> </h2><p> <%= list[i].summary %> </p>
+
+               <% if(list[i].img == "" || undefined){ %>
+               <div class="fill" style="background-image:url('/assets/example.jpg');"></div>
+               <%}else{%>
+               <div class="fill" style="background-image:url('<%=list[i].img%>');"></div>
+               <%}%>
+               <div class="carousel-caption"><h2> <%= list[i].title %> </h2><p> <%= list[i].summary %> </p>
+
+
               </div>
             </div>
           <%}%>
