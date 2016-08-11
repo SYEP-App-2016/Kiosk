@@ -4,7 +4,7 @@ var passport = require('passport'),
     router = express.Router(),
     flash = require('connect-flash');
 
-router.get('/Login', function(req, res){
+router.get('user/login', function(req, res){
 
   User.find({}, function (err,users){
     if(err){console.log('users not found??? ' + err);}
