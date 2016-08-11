@@ -17,9 +17,6 @@ var v;
       console.log(e.which + ":" + chars.join("|"));
       var isbn = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + $("#barcode").val() + "&key=AIzaSyDOT2-jMtatkBgfVLqSNrJ-angfpNbP2c4";
 
-      var osis = $("#book").val();
-      $("#osis").val(osis);
-
 
       $.getJSON(isbn, function(data) {
 
@@ -34,13 +31,15 @@ var v;
             genre = info.categories,
             image = info.imageLinks,
             thumbnail = image.thumbnail,
-            sThumbnail = image.smallThumbnail;
+            sThumbnail = image.smallThumbnail,
+            osis = $("#barcode").val();
 
 
         $("#title").val(title);
         $("#author").val(author);
         $("#summary").val(description);
         $("#publisher").val(publisher);
+        $("#osis").val(osis);
 
 
       });
