@@ -53,26 +53,7 @@ router.post('/clearAcc', function (req,res){
     });
   });
 });
-// Profile Template
-/*
-var profile = {
-    OSIS: 0
-    first: "",
-    mInital: "",
-    last: "",
-    contact = [ // MULTIPLE ENTRIES
-        {
-            uID : 0,
-            type: "", // ["Mobile", "Email" ]
-            content: "" // STORE AS STRING
-        }
-    ]
-};
 
-*/
-
-// GET PROFILE
-// UPDATE PROFILE
 
 
 

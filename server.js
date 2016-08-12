@@ -8,7 +8,8 @@ var express = require('express'),
    methodOverride = require('method-override'),
    LocalStrategy = require('passport-local').Strategy,
    cookie = require('cookie'),
-   expressSession = require('express-session');
+   expressSession = require('express-session'),
+   passport = require('passport');
 
    mongoose.connect(database.url, function (err,res){
      if (err){console.log('Error Connecting to:' + database.url + "\n" + err);}
@@ -34,6 +35,11 @@ app.use('/Book', require('./controller/book'));
 app.use('/User', require('./controller/user'));
 app.use('/Genre', require('./controller/genre'));
 app.use('/Checkout', require('./controller/checkout'));
+
+// Configuring Passport
+app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // ADMINISTRATION SECTION
 app.use('/Admin', require('./controller/admin'));
