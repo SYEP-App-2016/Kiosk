@@ -17,8 +17,8 @@ userSchema.methods.validPassword = function(cid){
     return bcrypt.compareSync(cid, this.cid);
 };
 
+// REDUNDANT -> REMOVE IN NEXT UPDATE
 // var User = mongoose.model('User', userSchema);
-
 // module.exports = User;
 
 module.exports = mongoose.model('User', userSchema);
