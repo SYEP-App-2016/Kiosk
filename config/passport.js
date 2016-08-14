@@ -15,6 +15,7 @@ passport.deserializeUser(function(id, done) {
    });
 });
 
+
        // =========================================================================
        // LOCAL SIGNUP ============================================================
        // =========================================================================
@@ -54,18 +55,32 @@ passport.use('local-signup',
      });
 }));
 
+
+// WORKS???
 passport.use('local-login',
     new localStrategy({
         usernameField: 'osis',
         passwordField: 'cid',
         passReqToCallback: true
     }, function(req, osis, cid, done){
-        User.findOne({'osis': osis}, function(err, user){
-            if(err) return done(err);
-            if(!user) return done(null, false);
+
+        console.log(req);
+
+        User.findOne({'osis': osis}, function(err, _user){
+            if(err) { 
+                return done(err);
+            }
+
+            if(!_user) {
+                return done(null, false);
+            }
+
             // if(!user.validPassword(cid)) return done(null, false);
-            if(!user.validPassword(cid)) return done(null, false, req.flash('loginMessage', 'Oops! Wrong Password. Please Try Again.'));
-            return done(null, User);
+            if(!_user.validPassword(cid)) {
+                return done(null, false, req.flash('loginMessage', 'Oops! Wrong Password. Please Try Again.'));
+            } 
+
+            return done(null, _user);
         });
     })
 );

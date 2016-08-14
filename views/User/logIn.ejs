@@ -1,4 +1,4 @@
-<% include ./header.ejs %>
+<% include ../header.ejs %>
 
 <h1>Log in</h1>
 
@@ -14,14 +14,14 @@
     <% } %>
 
     <!-- LOGIN FORM -->
-    <form action="login" method="post">
+    <form action="/User/Login" method="POST">
         <div class="form-group">
             <label>Email</label>
             <input type="text" class="form-control" name="osis">
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="text" class="form-control" name="cid">
+            <input type="Password" class="form-control" name="cid">
         </div>
 
         <button type="submit" class="btn btn-warning btn-lg">Login</button>
@@ -29,9 +29,9 @@
 
     <hr>
 
-    <p>Need an account? <a href="signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <p>Need an account? <a href="User/Signup">Signup</a></p>
+    <p>Or go <a href="/">Home</a>.</p>
 
 </div>
 
-<% include ./footer.ejs %>
+<% include ../footer.ejs %>

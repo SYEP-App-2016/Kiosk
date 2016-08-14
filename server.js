@@ -16,7 +16,7 @@ var express = require('express'),
 mongoose.connect(database.url, function (err,res){
  if (err){console.log('Error Connecting to:' + database.url + "\n" + err);}
  else{console.log('Connection Successful.');}
-});
+}); 
 
 require('./config/passport');
 
@@ -36,6 +36,8 @@ app.use(cookieParser());
 app.use(methodOverride());
 
 // Configuring Passport
+
+app.use(flash());
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
