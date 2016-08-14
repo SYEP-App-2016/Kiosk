@@ -31,17 +31,27 @@ passport.use('local-signup',
 
      process.nextTick(function() {
 
-     User.findOne({ 'osis' :  osis }, function(err, user) {
-         if (err)
+     User.findOne({ 'osis' :  osis }, function(err, _user) {
+         
+         console.log(req);
+         
+         if (err) {
              return done(err);
-         if (user) {
+         }
+
+         if (_user) {
+             console.log("FAILS BECAUSE EXISTS");
              return done(null, false);
          } else {
 
-             var newUser = new User();
+             var newUser = new User({ 
+                 osis: osis,
+                 cid: newUser.generateHash(cid)
+              });
 
-             newUser.osis = osis;
-             newUser.cid = newUser.generateHash(cid);
+              /* TOO VERBOSE - WILL REMOVE NEXT UPDATE */
+             // newUser.osis = osis;
+             // newUser.cid = newUser.generateHash(cid);
 
              newUser.save(function(err) {
                  if (err)
