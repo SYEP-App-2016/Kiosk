@@ -31,7 +31,7 @@ router.get('/Signup', function(req, res) {
     */
 
    // render the page and pass in any flash data if it exists
-   res.render('User/signUp', { message: req.flash('loginMessage') });
+   res.render('User/signUp', { message: req.flash('signupMessage') });
 
 });
 

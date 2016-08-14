@@ -40,9 +40,10 @@ passport.use('local-signup',
          }
 
          if (_user) {
-             console.log("FAILS BECAUSE EXISTS");
-             return done(null, false);
+             return done(null, false, req.flash('signupMessage', 'That email is already in use.'));
          } else {
+
+
 
              var newUser = new User({ 
                  osis: osis,
