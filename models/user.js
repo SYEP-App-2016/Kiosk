@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
     bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
@@ -9,14 +9,14 @@ var userSchema = mongoose.Schema({
   cid: String
 });
 
-var User = mongoose.model('User', userSchema);
+userSchema.methods.generateHash = function(cid){
+    return bcrypt.hashSync(cid, bcrypt.genSaltSync(8), null);
+};
 
-// userSchema.methods.generateHash = function(password){
-//     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-// };
-//
-// userSchema.methods.validPassword = function(password){
-//     return bcrypt.compareSync(password, this.password);
-// };
+userSchema.methods.validPassword = function(cid){
+    return bcrypt.compareSync(cid, this.cid);
+};
+
+var User = mongoose.model('User', userSchema);
 
 module.exports = User;

@@ -1,42 +1,71 @@
-var localStrategy = require('passport-local'),
-    User = require('../models/user'),
-    passport = require('passport');
+var User = require('../models/user'),
+    passport = require('passport'),
+    localStrategy = require('passport-local'),
+    bcrypt = require('bcrypt-nodejs'),
+    flash = require('connect-flash');
 
 passport.serializeUser(function(user, done) {
-  done(null, user._id);
+  done(null, user.id);
 });
 
+       // used to deserialize the user
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
+   User.findById(id, function(err, user) {
+       done(err, user);
+   });
 });
 
-passport.use('login', new LocalStrategy({
-    passReqToCallback : true
-  },
-  function(req, osis, cid, done) {
-    // check in mongo if a user with osis exists or not
-    User.findOne({ 'osis' :  osis },
-      function(err, user) {
-        // In case of any error, return using the done method
-        if (err)
-          return done(err);
-        // osis does not exist, log error & redirect back
-        if (!user){
-          console.log('User Not Found with osis '+osis);
-          return done(null, false,
-                req.flash('message', 'User Not found.'));
-        }
-        // User exists but wrong cid, log the error
-        if (!isValidcid(user, cid)){
-          console.log('Invalid cid');
-          return done(null, false,
-              req.flash('message', 'Invalid cid'));
-        }
-        // User and cid both match, return user from
-        // done method which will be treated like success
-        return done(null, user);
-      }
-    );
+       // =========================================================================
+       // LOCAL SIGNUP ============================================================
+       // =========================================================================
+       // we are using named strategies since we have one for login and one for signup
+       // by default, if there was no name, it would just be called 'local'
+
+passport.use('local-signup',
+  new localStrategy({
+     usernameField : 'osis',
+     passwordField : 'cid',
+     passReqToCallback : true
+  }, function(req, osis, cid, done) {
+
+     process.nextTick(function() {
+
+     User.findOne({ 'osis' :  osis }, function(err, user) {
+         if (err)
+             return done(err);
+         if (user) {
+             return done(null, false);
+         } else {
+
+             var newUser = new User();
+
+             newUser.osis = osis;
+             newUser.cid = newUser.generateHash(cid);
+
+             newUser.save(function(err) {
+                 if (err)
+                     throw err;
+                 return done(null, newUser);
+             });
+         }
+
+     });
+
+     });
 }));
+
+passport.use('local-login',
+    new localStrategy({
+        usernameField: 'osis',
+        passwordField: 'cid',
+        passReqToCallback: true
+    }, function(req, osis, cid, done){
+        User.findOne({'osis': osis}, function(err, user){
+            if(err) return done(err);
+            if(!user) return done(null, false);
+            // if(!user.validPassword(cid)) return done(null, false);
+            if(!user.validPassword(cid)) return done(null, false, req.flash('loginMessage', 'Oops! Wrong Password. Please Try Again.'));
+            return done(null, User);
+        });
+    })
+);
