@@ -2,7 +2,6 @@ var express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router(),
     database = require('../config/database.js'),
-    Genre = require('../models/genre.js');
     Book = require('../models/book.js')
 
 

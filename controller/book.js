@@ -2,8 +2,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router(),
     database = require('../config/database.js'),
-    Book = require('../models/book.js'),
-    Genre = require('../models/genre.js');
+    Book = require('../models/book.js');
 
 var ObjectId = mongoose.Types.ObjectId;
 

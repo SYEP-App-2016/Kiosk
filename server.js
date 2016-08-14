@@ -16,7 +16,7 @@ var express = require('express'),
 mongoose.connect(database.url, function (err,res){
  if (err){console.log('Error Connecting to:' + database.url + "\n" + err);}
  else{console.log('Connection Successful.');}
-}); 
+});
 
 require('./config/passport');
 
@@ -47,7 +47,6 @@ app.use(passport.session());
 app.use('/', require('./controller/index'));
 app.use('/Book', require('./controller/book'));
 app.use('/User', require('./controller/user'));
-app.use('/Genre', require('./controller/genre'));
 app.use('/Checkout', require('./controller/checkout'));
 
 
