@@ -77,7 +77,7 @@ $(window).keypress(function(e) {
 
       $.getJSON(isbn0, function(data) {
 
-        var a = data.results;
+        var a = data.results,
             title = a.title,
             author = a.author,
             img = a.img;
@@ -114,6 +114,8 @@ function setFocus(){
   $("#barcode").focus();
   console.log("FOCUSED!");
 }
+
+
 
 $(document).focus(function(){
   $("#barcode").focus();
