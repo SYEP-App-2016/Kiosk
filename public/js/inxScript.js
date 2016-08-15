@@ -77,7 +77,11 @@ function getMarketing() {
 
 updateHTML("#dvMarketing .col-lg-12", getMarketing());
 
+$.get("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(results){
+  // console.log(results);
 
+  $(".quote row div").text( results[0].content.trim() + " - " + results[0].title );
+});
 
 // UI STARTUP
 $('.carousel').carousel({
