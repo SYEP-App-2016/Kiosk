@@ -33,8 +33,6 @@ passport.use('local-signup',
 
      User.findOne({ 'osis' :  osis }, function(err, _user) {
          
-         console.log(req);
-         
          if (err) {
              return done(err);
          }
@@ -43,16 +41,18 @@ passport.use('local-signup',
              return done(null, false, req.flash('signupMessage', 'That email is already in use.'));
          } else {
 
-
+/*
+             console.log(User);
 
              var newUser = new User({ 
                  osis: osis,
-                 cid: newUser.generateHash(cid)
+                 cid: User.generateHash(cid)
               });
-
+*/
+            var newUser = new User();
               /* TOO VERBOSE - WILL REMOVE NEXT UPDATE */
-             // newUser.osis = osis;
-             // newUser.cid = newUser.generateHash(cid);
+             newUser.osis = osis;
+             newUser.cid = newUser.generateHash(cid);
 
              newUser.save(function(err) {
                  if (err)
@@ -83,7 +83,7 @@ passport.use('local-login',
             }
 
             if(!_user) {
-                return done(null, false);
+                return done(null, req.flash('loginMessage', 'No user found.'));
             }
 
             // if(!user.validPassword(cid)) return done(null, false);

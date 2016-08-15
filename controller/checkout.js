@@ -8,6 +8,16 @@ var express = require('express'),
 
 
 
+router.get('/', function(req,res){
+  
+});
+
+
+router.get('/Add', function(req,res){
+
+  res.render('Checkout/add', {user: req.user });
+});
+
 router.get('/cart', function(req,res){
   Book.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
