@@ -1,14 +1,11 @@
 $(document).ready(function(){
 
-var num = 1;
+var num = 0;
 
 var v;
 var pressed = false;
 var chars = [];
 
-var isbn0 = "",
-    isbn01 = "",
-    isbn02 = "";
 
 $(".addBook").click(function(){
 
@@ -26,11 +23,9 @@ $(".addBook").click(function(){
                <div class="info">\
                     <div class="col-sm-6 col-md-6">\
                       <h1>Title:</h1>\
-                      <ul class="title0'+ num +'"></ul>\
+                      <div class = "title0'+num+'" type="text"></div>\
                              <h1> Author: </h1>\
-                      <ul class="author0' + num + '> Rick Riordan</ul>\
-                         <h1>  Books Available:</h1>\
-                      <ul>12/16 Copies</ul>\
+                      <div class = "author0'+num+'" type="text"></div>\
                     </div>\
                     <div class="col-sm-3 col-md-3">\
                       <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">\
@@ -44,10 +39,10 @@ $(".addBook").click(function(){
            </div>\
       </div>\
   </div>'
-  if(num >= 3){
+  if(num >= 2){
     console.log("Too many books!");
   }else{
-    $(".row").append(b);
+    $(".row1").append(b);
   num ++;
 }
 });
@@ -69,30 +64,26 @@ $(window).keypress(function(e) {
 
   console.log(e.which + ":" + chars.join("|"));
 
+  var url = "http://localhost:8080/book/api/book/";
 
-  var isbn0 = "http://localhost:8080/book/api/book/" + $("#barcode0").val(),
-      isbn01 = "http://localhost:8080/book/api/book/" + $("#barcode01").val(),
-      isbn02 = "http://localhost:8080/book/api/book/" + $("#barcode02").val();
-
-
-      $.getJSON(isbn0, function(data) {
+  // var isbn = [url + $("#barcode00").val(), url + $("#barcode01").val(), url + $("#barcode02").val()];
+    for(var i = 0; i < 3; i++){
+        console.log(i + "? :" + url + $("#barcode0" + i).val());
+      $.getJSON(url + $("#barcode0" + i).val(), function(data) {
 
         var a = data.results,
             title = a.title,
             author = a.author,
             img = a.img;
 
-            console.log(title + " " + author + " " + img);
+            console.log(title + " " + author + " " + img + isbn[i]);
 
-        $("#title0").val(title);
-        $("#author0").text(author);
+        $(".title0" + i).val(title);
+
+        $(".author0" + i).val(author);
 
       });
-  // $("#author0").val(author);
-  // $("#title01").val(title);
-  //
-  // $("#title02").val(title);
-  // $("#author02").val(author);
+    }
 
 
 
