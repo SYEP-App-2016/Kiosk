@@ -7,9 +7,8 @@ var mongoose = require('mongoose'),
 var checkoutSchema = mongoose.Schema({
   checkedOut: String,
   checkedIn: String,
-  title: String,
-  author: String,
-  desc: String
+  isbn: String,
+  osis: String
 });
 
 var Checkout = mongoose.model('Checkout', checkoutSchema);

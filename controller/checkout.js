@@ -9,12 +9,12 @@ var express = require('express'),
 
 
 router.get('/cart', function(req,res){
-  Checkout.find({}, function (err,checkout){
-    if(err){console.log('???' + err);}
+  Book.find({}, function (err,books){
+    if(err){console.log('Books not found??? ' + err);}
+    // console.log(books);
     res.render('./checkout', {
-          list: checkout
+      list: books
     });
-    console.log(checkout);
   });
 });
 

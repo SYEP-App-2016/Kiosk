@@ -18,7 +18,7 @@ var page = {
 router.get('/Add', function(req,res){
   res.render('Book/add', {
       title: 'Submit a Book'
-    });
+  });
 });
 
 //saves new books
@@ -35,7 +35,8 @@ router.post('/Add', function (req, res){
     genre: posted.genre,
     img: posted.img,
     sImg: posted.sImg,
-    pageCount: posted.pageCount
+    pageCount: posted.pageCount,
+    isbn : posted.isbn
   });
 
 
@@ -56,12 +57,20 @@ router.get('/', function(req,res){
 
   Book.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
-    // console.log(books);
+    console.log(books);
     res.render('./library', {
       list: books
     });
   });
 
+
+});
+
+router.get('/api/book/:isbn', function(req,res){
+  Book.find({isbn: req.params.isbn }, function(err, book){
+    b = book[0];
+    res.send({ results: b });
+  });
 
 });
 

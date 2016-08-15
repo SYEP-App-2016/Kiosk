@@ -1,13 +1,53 @@
 <% include ./header.ejs %>
 
-<div class="row">
-  <%for(var i = 0; i < list.length; i++){%>
-    <div class="col-lg-4"><%=list[i].title%></div>
-    <div class="col-lg-8">
-    <p> <%=list[i].checkedOut%> - <%=list[i].checkedIn%></p>
+
+<div class="container">
+        <div class="row">
+
+
+
+     <div class="row1">
+         <div class="checkOut">
+             <div class="col-sm-3 col-md-3">
+                  <a href="#" class="thumbnail">
+                    <img src = "">
+                  </a>
+                  <center>
+                    <input id="barcode0" type="text" placeholder="barcode scan" onblur="setFocus()"/>
+                  </center>
+             </div>
+              <div class="col-sm-9 col-md-9">
+                  <div class="info">
+                       <div class="col-sm-6 col-md-6">
+                         <h1>Title:</h1>
+                         <input class = "title0" type="text">
+                                <h1> Author: </h1>
+                         <ul class = "author0"></ul>
+                       </div>
+                       <div class="col-sm-3 col-md-3">
+                         <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">
+                              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+                         <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">
+                              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                       </div>
+                  </div>
+              </div>
+         </div>
+     </div>
+
+
+
+
+
+
+
+
+        </div>
     </div>
-  <%}%>
-</div>
+
+<button class="btn btn-default addBook">Add Book</button>
 
 
 

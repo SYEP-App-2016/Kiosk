@@ -19,7 +19,6 @@ var v;
 
 
       $.getJSON(isbn, function(data) {
-
         var a = data.items[0],
             info = a.volumeInfo,
             title = info.title,
@@ -31,8 +30,9 @@ var v;
             genre = info.categories,
             image = info.imageLinks,
             thumbnail = image.thumbnail,
-            sThumbnail = image.smallThumbnail;
-
+            sThumbnail = image.smallThumbnail,
+            isbn = info.industryIdentifiers[1].identifier;
+            
         $("#title").val(title);
         $("#author").val(author);
         $("#summary").val(description);
@@ -41,6 +41,9 @@ var v;
         $("#pageCount").val(pageCount);
         $("#sImage").val(sThumbnail);
         $("#genre").val(genre);
+        $("#isbn").val(isbn);
+
+
 
       });
 
