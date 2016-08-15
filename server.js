@@ -54,14 +54,8 @@ app.use('/Checkout', require('./controller/checkout'));
 // ADMINISTRATION SECTION
 app.use('/Admin', require('./controller/admin'));
 
-// var flash = require('connect-flash');
-// app.use(flash());
-
-
-
 app.listen(port);
 console.log("Listening on port" + port);
-
 
 
 // OUTSIDE LISTENING PORT ??/
