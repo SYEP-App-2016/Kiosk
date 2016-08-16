@@ -1,13 +1,14 @@
 $(document).ready(function(){
 
 var num = 1;
-
 var v;
 var pressed = false;
 var chars = [];
 
 var bookCheckouts = [];
+
 console.log("very beginning: "+typeof bookCheckouts + " : " + typeof num);
+
 $(".addBook").click(function(){
 
   var b = '<div class="row">\
@@ -45,7 +46,7 @@ $(".addBook").click(function(){
   }else{
     $(".row1").append(b);
   num ++;
-}
+``}
 });
 
 
@@ -60,53 +61,59 @@ $(window).keypress(function(e) {
       chars.push(String.fromCharCode(e.which));
   }
 
-
-  // console.log(chars.length);
-
+  console.log("Characters Length: " + chars.length);
   // console.log(e.which + ":" + chars.join("|"));
 
+  for(var i = 0; i < 3; i ++){
+    fillIn(i);
+  }
 
-
-for(var i = 0; i < 3; i ++){
-  fillIn(i);
-}
-
-
-
-
-
-    pressed = true;
+  pressed = true;
 });
 
-function fillIn(count){
-  var url = "http://localhost:8080/book/api/book/",
-      isbnVal = $("#checkout" + count).val(),
-      book = url + isbnVal;
 
-
-  $.getJSON(book, function(data){
-    var a = data.results,
-        title = a.title,
-        author = a.author,
-        img = a.img;
-                        console.log("1: " + typeof bookCheckouts);
+function processData(results){
+  
+  var a = data.results,
+    title = a.title,
+    author = a.author,
+    img = a.img;
+                        
+      console.log("1: " + typeof bookCheckouts);
+    
     $('.title' + count).text(title);
     $('.author' + count).text(author);
     $('.image' + count).attr("src", img);
-    console.log(isbnVal + "??");
+    
+      console.log(isbnVal + "??");
+    
     $('#osis').val($("#user").text());
 
-    if($("#checkout" + count).val().length <= 13 && bookCheckouts.includes(isbnVal)){
+    if($("#checkout" + count).val().length <= 13 && bookCheckouts.includes(isbnVal)) {
       console.log("test");
-    }else{
+    } else {
+
       bookCheckouts.push(isbnVal);
-      console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
-                console.log("2:" + typeof bookCheckouts);
+        console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
+        console.log("2:" + typeof bookCheckouts);
       $("#booksArr").val(bookCheckouts);
-          console.log("3:" + typeof bookCheckouts);
+        console.log("3:" + typeof bookCheckouts);
     }
     // console.log(bookCheckouts);
+}
+
+
+function fillIn(count){
+  var endPoint = "http://localhost:8080/book/api/book/" + $("#checkout" + count).val();
+      // isbnVal = $("#checkout" + count).val(),
+      // book = url + isbnVal;
+
+  console.log( $("#checkout" + count).val() );
+
+  $.getJSON(endPoint, function(data){
+    processData(data);
   });
+  
 }
 
 
