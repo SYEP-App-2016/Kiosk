@@ -2,7 +2,8 @@ var passport = require('passport'),
     User = require('../models/user'),
     express = require('express'),
     router = express.Router(),
-    flash = require('connect-flash');
+    flash = require('connect-flash'),
+    U = require('../utilities.js');
 
 
 // LOGIN BEGINS
@@ -35,7 +36,7 @@ router.post('/Signup', passport.authenticate('local-signup', {
 
 
 
-router.get('/Profile', isLoggedIn, function(req, res) {
+router.get('/Profile',U.isLoggedIn, isLoggedIn, function(req, res) {
     res.render('User/profile', {
         user : req.user // get the user out of session and pass to template
     });
@@ -43,7 +44,7 @@ router.get('/Profile', isLoggedIn, function(req, res) {
 
 router.get('/logout', function(req, res) {
    req.logout();
-   res.redirect('/');
+   res.redirect('/login');
 });
 
 

@@ -1,21 +1,37 @@
-var request = require("request");
+// var request = require("request");
 
 // IN PROCESS
-function makeRequest(_method, _url, _params, callback){
 
-    var options = {
-        method: _method,
-        url: _url,
-    };
+module.exports = {
+    isLoggedIn: function(req, res, next){
+        console.log(req.user);
+        if(req.isAuthenticated())
+            return next();
+        res.redirect('/');
+    },
+    isLoggedIn2: function(req, res, next){
+        console.log(req.user);
+        if(req.isAuthenticated())
+            return next();
+        res.redirect('/Profile');
+    },
+};
 
-    request(options, function(err, results){
-        callback(err, results);
-    });
-
-}
-
-makeRequest("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:9780316036351", '', function(err, data){
-    if(err) throw err;
-    
-    console.log(data);
-});
+// function makeRequest(_method, _url, _params, callback){
+//
+//     var options = {
+//         method: _method,
+//         url: _url,
+//     };
+//
+//     request(options, function(err, results){
+//         callback(err, results);
+//     });
+//
+// }
+//
+// makeRequest("GET", "https://www.googleapis.com/books/v1/volumes?q=isbn:9780316036351", '', function(err, data){
+//     if(err) throw err;
+//
+//     console.log(data);
+// });
