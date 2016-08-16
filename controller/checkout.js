@@ -7,8 +7,16 @@ var express = require('express'),
     Book = require('../models/book.js');
 
 
+//TEST ROUTE???
+router.get('/index', function(req,res){
+  res.render('_index');
+});
 
+
+// STUDENT LOGIN VIA SCAN OR STUDENTID
 router.get('/', function(req,res){
+  
+  /* NOTHING TO REQUEST
   Checkout.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
     res.render('checkout/checkout', {
@@ -16,6 +24,8 @@ router.get('/', function(req,res){
       user: req.user
     });
   });
+  */
+  res.render('Checkout/cart', { user: req.user });
 });
 
 
@@ -39,10 +49,6 @@ router.post('/checkout', function (req, res){
     res.redirect('/checkout');
   });
 
-});
-
-router.get('/index', function(req,res){
-  res.render('_index');
 });
 
 router.post('/deleteCheckouts', function (req,res){
