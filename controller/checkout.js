@@ -29,9 +29,9 @@ router.get('/',U.isLoggedIn, function(req,res){
 });
 
 
-
-router.get('/cart',U.isLoggedIn, function(req,res){
-    res.render('Checkout/Cart', {user: req.user });
+// router.get('/cart', U.isLoggedIn, function(req,res){
+router.get('/cart', function(req,res){
+    res.render('Checkout/Cart', {user: "Aaron" }); // req.user });
 });
 
 router.post('/checkout', U.isLoggedIn, function (req, res){
