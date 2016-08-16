@@ -94,17 +94,10 @@ function processData(results){
     } else {
 
       bookCheckouts.push(isbnVal);
-// <<<<<<< HEAD
-      console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
-                console.log("2:" + typeof bookCheckouts);
-      $("#booksArr")[count].val(bookCheckouts);
-          console.log("3:" + typeof bookCheckouts);
-// =======
-//         console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
-//         console.log("2:" + typeof bookCheckouts);
-//       $("#booksArr").val(bookCheckouts);
-//         console.log("3:" + typeof bookCheckouts);
-// >>>>>>> 34c69298537fc5e4f415dbb64a91da057ed8c18e
+        console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
+        console.log("2:" + typeof bookCheckouts);
+      $("#booksArr").val(bookCheckouts);
+        console.log("3:" + typeof bookCheckouts);
     }
     // console.log(bookCheckouts);
 }
