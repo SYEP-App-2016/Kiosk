@@ -2,7 +2,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router(),
     database = require('../config/database.js'),
-    moment = require('moment');
+    moment = require('moment'),
     Checkout = require('../models/checkout.js'),
     Book = require('../models/book.js'),
     U = require('../utilities.js');
@@ -16,12 +16,8 @@ router.get('/index', function(req,res){
 
 
 // STUDENT LOGIN VIA SCAN OR STUDENTID
-router.get('/', function(req,res){
-  
-  /* NOTHING TO REQUEST
-=======
+
 router.get('/',U.isLoggedIn, function(req,res){
->>>>>>> 13cd4e43517b10459233464fb06e19970d54d27c
   Checkout.find({}, function (err,books){
     console.log(books);
     if(err){console.log('Books not found??? ' + err);}
@@ -30,8 +26,6 @@ router.get('/',U.isLoggedIn, function(req,res){
       user: req.user
     });
   });
-  */
-  res.render('Checkout/cart', { user: req.user });
 });
 
 

@@ -102,7 +102,7 @@ function fillIn(count){
       bookCheckouts.push(isbnVal);
       console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
                 console.log("2:" + typeof bookCheckouts);
-      $("#booksArr").val(bookCheckouts);
+      $("#booksArr")[count].val(bookCheckouts);
           console.log("3:" + typeof bookCheckouts);
     }
     // console.log(bookCheckouts);
