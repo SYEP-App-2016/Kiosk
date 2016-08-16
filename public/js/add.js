@@ -31,8 +31,8 @@ var v;
             image = info.imageLinks,
             thumbnail = image.thumbnail,
             sThumbnail = image.smallThumbnail,
-            isbn = info.industryIdentifiers[1].identifier;
-            
+            isbn = $("#barcode").val();
+
         $("#title").val(title);
         $("#author").val(author);
         $("#summary").val(description);

@@ -40,6 +40,7 @@ $(".addBook").click(function(){
   </div>';
 
   var form = '<form method="POST" action = "Checkout">\
+    <input id = "count" name="count" type="Number" class="form-control" style="display: none;" value="0"/>\
     <input id = "isbn" name="isbn" type="String" class="form-control" style="display: none;"/>\
     <input id = "osis" name="osis" type="String" class="form-control" style="display: none;"/>\
     <input class="btn btn-default btn-warning" type="submit" value="Checkout">\
@@ -73,7 +74,7 @@ $(window).keypress(function(e) {
 
 
 
-for(var i = 0; i < 3; i ++){
+for(var i = 0; i < 7; i ++){
   fillIn(i);
 }
 
@@ -99,7 +100,7 @@ function fillIn(count){
     $('.title' + count).text(title);
     $('.author' + count).text(author);
     $('.image' + count).attr("src", img);
-    console.log(isbnVal);
+    console.log(isbnVal + "??");
     $('#isbn').val(isbnVal);
     $('#osis').val($("#user").text());
 
@@ -121,15 +122,15 @@ $("#checkout").keypress(function(e){
 
 
 
-function setFocus(){
-  $("#checkout").focus();
-  console.log("FOCUSED!");
-}
+// function setFocus(){
+//   $("#checkout").focus();
+//   console.log("FOCUSED!");
+// }
 
 
 
-$(document).focus(function(){
-  $("#checkout").focus();
-});
+// $(document).focus(function(){
+//   $("#checkout").focus();
+// });
 
 });

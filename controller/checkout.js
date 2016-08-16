@@ -4,7 +4,8 @@ var express = require('express'),
     database = require('../config/database.js'),
     moment = require('moment');
     Checkout = require('../models/checkout.js'),
-    Book = require('../models/book.js');
+    Book = require('../models/book.js'),
+    U = require('../utilities.js');
 
 
 
@@ -20,11 +21,11 @@ router.get('/', function(req,res){
 
 
 
-router.get('/cart', function(req,res){
+router.get('/cart',U.isLoggedIn, function(req,res){
     res.render('Checkout/Cart', {user: req.user });
 });
 
-router.post('/checkout', function (req, res){
+router.post('/checkout', U.isLoggedIn, function (req, res){
   var posted = req.body;
   var checkout = new Checkout({
     isbn: posted.isbn,
