@@ -2,7 +2,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router(),
     database = require('../config/database.js'),
-    Book = require('../models/book.js');
+    Book = require('../models/book.js'),
+    log = require('../config/passport.js');
 
 var ObjectId = mongoose.Types.ObjectId;
 
@@ -54,6 +55,7 @@ router.post('/Add', function (req, res){
 // RETRIEVE
 //retrieves documents and sets index
 router.get('/', function(req,res){
+
 
   Book.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
@@ -171,14 +173,14 @@ router.get('/index', function(req,res){
   res.render('./_index');
 });
 
-router.post('/index', function (req,res){
+router.post('/deleteBooks', function (req,res){
   Book.find({}, function(err, book) {
     if (err) throw err;
 
     // delete him
     Book.remove(function(err) {
       if (err) throw err;
-      res.redirect('/work');
+      res.redirect('/book/add');
     });
   });
 });

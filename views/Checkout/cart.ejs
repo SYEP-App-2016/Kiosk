@@ -1,5 +1,6 @@
-<% include ./header.ejs %>
+<% include ../header.ejs %>
 
+Welcome user <p id="user"><%=user.osis%></p>
 
 <div class="container">
         <div class="row">
@@ -52,8 +53,9 @@
 
 
 <form method="POST" action = "Checkout">
-  <input name="title" type="String" class="form-control" value="Hunger game" style='display: none;'/>
+  <input id = "isbn" name="isbn" type="String" class="form-control" style='display: none;'/>
+  <input id = "osis" name="osis" type="String" class="form-control" style='display: none;'/>
   <input class="btn btn-default btn-warning" type="submit" value="Checkout">
 </form>
 
-<% include ./footer.ejs %>
+<% include ../footer.ejs %>

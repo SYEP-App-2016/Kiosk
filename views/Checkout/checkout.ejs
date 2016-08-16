@@ -1,0 +1,13 @@
+<% include ../header.ejs %>
+
+
+<div class="container">
+  <div class="row">
+    <% for(var i = 0; i < list.length; i++){
+      <%=list[i].isbn%>
+    <%}%>
+  </div>
+</div>
+
+
+<% include ../footer.ejs %>

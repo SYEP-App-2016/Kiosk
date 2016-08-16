@@ -8,9 +8,14 @@ var express = require('express'),
 
 
 
-router.get('/', function(req,res){
-  
-});
+// router.get('/', function(req,res){
+//   Checkout.find({}, function (err,books){
+//     if(err){console.log('Books not found??? ' + err);}
+//     res.render('/checkout', {
+//       list: books
+//     });
+//   });
+// });
 
 
 router.get('/Add', function(req,res){
@@ -19,23 +24,17 @@ router.get('/Add', function(req,res){
 });
 
 router.get('/cart', function(req,res){
-  Book.find({}, function (err,books){
-    if(err){console.log('Books not found??? ' + err);}
-    // console.log(books);
-    res.render('./checkout', {
-      list: books
-    });
-  });
+
+    res.render('Checkout/Cart', {user: req.user });
 });
+
 
 
 router.post('/checkout', function (req, res){
   var posted = req.body;
-  console.log(posted);
   var checkout = new Checkout({
-    title: posted.title,
-    author: posted.author,
-    desc: posted.desc,
+    isbn: posted.isbn,
+    osis: posted.osis,
     checkedOut: moment().format("MMM Do YY"),
     checkedIn: moment().add(21, 'days').calendar()
   });
@@ -43,13 +42,25 @@ router.post('/checkout', function (req, res){
   checkout.save(function (err){
     if(err) throw err;
 
-    res.redirect('/book');
+    res.redirect('/checkout');
   });
 
 });
 
-router.post('/AddToCart',function(req, res){
+router.get('/', function(req,res){
+  res.render('_index');
+});
 
+router.post('/deleteCheckouts', function (req,res){
+  Checkout.find({}, function(err, book) {
+    if (err) throw err;
+
+    // delete him
+    Checkout.remove(function(err) {
+      if (err) throw err;
+      res.redirect('/checkout/cart');
+    });
+  });
 });
 
 module.exports = router;

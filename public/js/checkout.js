@@ -39,7 +39,15 @@ $(".addBook").click(function(){
                </div>\
            </div>\
       </div>\
-  </div>'
+  </div>';
+
+  var form = '<form method="POST" action = "Checkout">\
+    <input id = "isbn" name="isbn" type="String" class="form-control" style="display: none;"/>\
+    <input id = "osis" name="osis" type="String" class="form-control" style="display: none;"/>\
+    <input class="btn btn-default btn-warning" type="submit" value="Checkout">\
+  </form> ';
+
+
   if(num >= 3){
     console.log("Too many books!");
   }else{
@@ -92,13 +100,16 @@ function fillIn(count){
 
     $('.title' + count).val(title);
     $('.author' + count).val(author);
+    console.log(isbnVal);
+    $('#isbn').val(isbnVal);
+    $('#osis').val($("#user").text());
 
     if($("#checkout" + count).val().length <= 13 && bookCheckouts.includes(isbnVal)){
       console.log("test");
     }else{
       bookCheckouts.push(isbnVal);
     }
-    console.log(bookCheckouts);
+    // console.log(bookCheckouts);
   });
 }
 
