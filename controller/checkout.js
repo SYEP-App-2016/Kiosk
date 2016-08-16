@@ -8,27 +8,20 @@ var express = require('express'),
 
 
 
-// router.get('/', function(req,res){
-//   Checkout.find({}, function (err,books){
-//     if(err){console.log('Books not found??? ' + err);}
-//     res.render('/checkout', {
-//       list: books
-//     });
-//   });
-// });
-
-
-router.get('/Add', function(req,res){
-
-  res.render('Checkout/add', {user: req.user });
+router.get('/', function(req,res){
+  Checkout.find({}, function (err,books){
+    if(err){console.log('Books not found??? ' + err);}
+    res.render('checkout/checkout', {
+      list: books
+    });
+  });
 });
+
+
 
 router.get('/cart', function(req,res){
-
     res.render('Checkout/Cart', {user: req.user });
 });
-
-
 
 router.post('/checkout', function (req, res){
   var posted = req.body;
@@ -47,12 +40,12 @@ router.post('/checkout', function (req, res){
 
 });
 
-router.get('/', function(req,res){
+router.get('/index', function(req,res){
   res.render('_index');
 });
 
 router.post('/deleteCheckouts', function (req,res){
-  Checkout.find({}, function(err, book) {
+  Checkout.find({}, function(err, checkout) {
     if (err) throw err;
 
     // delete him
