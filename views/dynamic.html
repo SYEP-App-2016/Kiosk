@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link type="text/css" href="../public/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../public/js/jquery.js"></script>
+  <script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+   
+
+    <div class="container"> 
+        <button>Click </button>
+    
+    
+        <div class="row"></div>
+    </div>
+    
+    <!-- BOOTSTRAP MEDIA TEMPLATE -->
+    <!-- http://getbootstrap.com/components/#media -->
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="http://i0.kym-cdn.com/photos/images/facebook/000/998/762/47a.jpg" />
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Middle aligned media</h4>
+            <p>Some heavy Text</p>
+        </div>
+        <div class="media-right">
+            <button>A</button>
+            <button>B</button>
+        </div>
+    </div>
+
+    <script>
+
+        var counter = 0;
+
+        var _img = {
+            src: 'http://randomc.net/image/Sailor%20Moon%20Crystal/Sailor%20Moon%20Crystal%20-%2007%20-%2015.jpg',
+            alt: 'Some random Image',
+            style: 'height: 100px; width: 100px; border: solid 1px gray;'
+        };
+
+        var _ctxt = {
+            heading: "Media Heading",
+            content: "This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. "
+        };
+
+        function populateFields(img, body, count){
+            
+            $('<div/>', {
+                id: 'dvBook-' + (count),
+                class: 'media'
+            }).append( $('<div/>', {
+                id: 'dvMedia',
+                class: 'media-left'
+            }).append($('<a/>', {
+                href: "#"
+            }).append($('<img/>', {
+                class: 'media-object',
+                src: img.src,
+                alt: img.alt,
+                style: img.style
+            })))).append( $("<div/>", {
+                class: 'media-body'
+            }).append($("<h4/>",{
+                class: "media-heading",
+                text: body.heading
+            })).append( $("<p/>", {
+                text: body.content
+            }))).appendTo(".row");
+        }
+
+        $("button").click(function(){
+            populateFields(_img, _ctxt, counter++);
+
+/*
+            $('<div/>', {
+                id: 'dvBook-' + (counter++),
+                class: 'media'
+            }).append( $('<div/>', {
+                id: 'dvMedia',
+                class: 'media-left'
+            }).append($('<a/>', {
+                href: "#"
+            }).append($('<img/>', {
+                class: 'media-object',
+                src: 'http://randomc.net/image/Sailor%20Moon%20Crystal/Sailor%20Moon%20Crystal%20-%2007%20-%2015.jpg',
+                alt: 'Some Image',
+                style: 'height: 100px; width: 100px; border: solid 1px gray;'
+            })))).append( $("<div/>", {
+                class: 'media-body'
+            }).append($("<h4/>",{
+                class: "media-heading",
+                text: "Media Heading - " + counter
+            })).append( $("<p/>",{
+                text: "This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. "
+            }))).appendTo(".row");
+*/
+        });
+
+    </script>
+</body>
+</html>

@@ -8,8 +8,20 @@ var express = require('express'),
     U = require('../utilities.js');
 
 
+//TEST ROUTE???
+router.get('/index', function(req,res){
+  res.render('_index');
+});
 
+
+
+// STUDENT LOGIN VIA SCAN OR STUDENTID
+router.get('/', function(req,res){
+  
+  /* NOTHING TO REQUEST
+=======
 router.get('/',U.isLoggedIn, function(req,res){
+>>>>>>> 13cd4e43517b10459233464fb06e19970d54d27c
   Checkout.find({}, function (err,books){
     console.log(books);
     if(err){console.log('Books not found??? ' + err);}
@@ -18,6 +30,8 @@ router.get('/',U.isLoggedIn, function(req,res){
       user: req.user
     });
   });
+  */
+  res.render('Checkout/cart', { user: req.user });
 });
 
 
@@ -47,10 +61,6 @@ router.post('/checkout', U.isLoggedIn, function (req, res){
 
   res.redirect('/checkout');
 
-});
-
-router.get('/index', function(req,res){
-  res.render('_index');
 });
 
 router.post('/deleteCheckouts', function (req,res){
