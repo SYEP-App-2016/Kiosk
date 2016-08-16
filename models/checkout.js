@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 var checkoutSchema = mongoose.Schema({
   checkedOut: String,
   checkedIn: String,
-  isbn: String,
+  isbn: [String],
   osis: String
 });
 

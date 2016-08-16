@@ -1,15 +1,30 @@
 <% include ../header.ejs %>
 
+          <!-- <div class="container">
+            <div class="row">
+                 <div class="col-sm-4 col-md-4 col-lg-4">
+                       <a href="#" class="thumbnail">
+                         <img src="../assets/MissingCover.svg">
+                       </a>
+                 </div>
+                 <div class=" col-sm-8 col-md-8 col-lg-8">
+                      <div class="info2">
+                      <h1>Title:</h1>
+                         <ul>The Son Of Neptune</ul>
+                      <h1> Author: </h1>
+                         <ul> Rick Riordan</ul>
+                      <h1>  Books Available:</h1>
+                         <ul>12/16 Copies</ul>
+                      </div>
+                  </div>
+            </div>
+          </div> -->
 
-<div class="container">
-  <div class="row">
-    <% for(var i = 0; i < list.length; i++){ %>
-      <% if(user.osis == list[i].osis){ %>
-        <%=list[i].isbn%>
-      <%}%>
-    <%}%>
-  </div>
-</div>
+          <%=list[0].isbn[0][0]%>
+
+
+
+
 
 
 <% include ../footer.ejs %>

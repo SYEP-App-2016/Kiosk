@@ -7,7 +7,7 @@ var pressed = false;
 var chars = [];
 
 var bookCheckouts = [];
-
+console.log("very beginning: "+typeof bookCheckouts + " : " + typeof num);
 $(".addBook").click(function(){
 
   var b = '<div class="row">\
@@ -61,13 +61,13 @@ $(window).keypress(function(e) {
   }
 
 
-  console.log(chars.length);
+  // console.log(chars.length);
 
-  console.log(e.which + ":" + chars.join("|"));
+  // console.log(e.which + ":" + chars.join("|"));
 
 
 
-for(var i = 0; i < 7; i ++){
+for(var i = 0; i < 3; i ++){
   fillIn(i);
 }
 
@@ -89,7 +89,7 @@ function fillIn(count){
         title = a.title,
         author = a.author,
         img = a.img;
-
+                        console.log("1: " + typeof bookCheckouts);
     $('.title' + count).text(title);
     $('.author' + count).text(author);
     $('.image' + count).attr("src", img);
@@ -101,7 +101,9 @@ function fillIn(count){
     }else{
       bookCheckouts.push(isbnVal);
       console.log("In The Array:  " + bookCheckouts + "isbn :" + isbnVal);
+                console.log("2:" + typeof bookCheckouts);
       $("#booksArr").val(bookCheckouts);
+          console.log("3:" + typeof bookCheckouts);
     }
     // console.log(bookCheckouts);
   });

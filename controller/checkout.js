@@ -9,7 +9,7 @@ var express = require('express'),
 
 
 
-router.get('/', function(req,res){
+router.get('/',U.isLoggedIn, function(req,res){
   Checkout.find({}, function (err,books){
     console.log(books);
     if(err){console.log('Books not found??? ' + err);}
@@ -27,25 +27,24 @@ router.get('/cart',U.isLoggedIn, function(req,res){
 });
 
 router.post('/checkout', U.isLoggedIn, function (req, res){
-  var posted = req.body,
-      booksArr = posted.booksArr;
+  var posted = req.body;
 
-  for(var i = 0; i < booksArr.length; i++){
+
     var checkout = new Checkout({
-      isbn: booksArr[i],
+      isbn: posted.booksArr,
       osis: posted.osis,
       checkedOut: moment().format("MMM Do YY"),
       checkedIn: moment().add(21, 'days').calendar()
     });
 
-        console.log("amount of books being saved: " + booksArr.length + " isbn of book(" + i +") :" + booksArr[i]);
+        // console.log("amount of books being saved: " + booksArr.length + " isbn of book(" + i +") :" + booksArr[i]);
     // console.log(checkout.checkedOut);
     checkout.save(function (err){
       if(err) throw err;
 
 
     });
-  }
+
   res.redirect('/checkout');
 
 });
