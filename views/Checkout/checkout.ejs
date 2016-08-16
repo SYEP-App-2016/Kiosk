@@ -4,7 +4,9 @@
 <div class="container">
   <div class="row">
     <% for(var i = 0; i < list.length; i++){ %>
-      <%=list[i].isbn%>
+      <% if(user.osis == list[i].osis){ %>
+        <%=list[i].isbn%>
+      <%}%>
     <%}%>
   </div>
 </div>

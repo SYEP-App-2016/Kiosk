@@ -12,7 +12,8 @@ router.get('/', function(req,res){
   Checkout.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
     res.render('checkout/checkout', {
-      list: books
+      list: books,
+      user: req.user
     });
   });
 });
