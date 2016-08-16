@@ -10,33 +10,31 @@ var bookCheckouts = [];
 
 $(".addBook").click(function(){
 
-  var b = '<div class="row2">\
+  var b = '<div class="row">\
       <div class="checkOut">\
           <div class="col-sm-3 col-md-3">\
                <a href="#" class="thumbnail">\
-                <img src="">\
+                <img class = "image' + num +'" src="">\
                 <center>\
                   <input id="checkout' + num +'"  type="text" placeholder="barcode scan"/>\
                 </center>\
                 </a>\
           </div>\
-           <div class="col-sm-9 col-md-9">\
-               <div class="info">\
-                    <div class="col-sm-6 col-md-6">\
-                      <h1>Title:</h1>\
-                      <input class = "title'+num+'" type="text">\
-                             <h1> Author: </h1>\
-                      <input class = "author'+num+'" type="text">\
-                    </div>\
-                    <div class="col-sm-3 col-md-3">\
-                      <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">\
-                           <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>\
-                     </button>\
-                      <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">\
-                           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>\
-                     </button>\
-                    </div>\
-               </div>\
+            <div class="info">\
+                <div class="col-sm-6 col-md-6">\
+                  <h1>Title:</h1>\
+                  <div class = "title'+num+'" type="text"></div>\
+                  <h1> Author: </h1>\
+                  <div class = "author'+num+'" type="text"></div>\
+                </div>\
+                <div class="col-sm-3 col-md-3">\
+                  <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">\
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>\
+                  </button>\
+                  <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">\
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>\
+                  </button>\
+                </div>\
            </div>\
       </div>\
   </div>';
@@ -98,8 +96,9 @@ function fillIn(count){
         author = a.author,
         img = a.img;
 
-    $('.title' + count).val(title);
-    $('.author' + count).val(author);
+    $('.title' + count).text(title);
+    $('.author' + count).text(author);
+    $('.image' + count).attr("src", img);
     console.log(isbnVal);
     $('#isbn').val(isbnVal);
     $('#osis').val($("#user").text());
