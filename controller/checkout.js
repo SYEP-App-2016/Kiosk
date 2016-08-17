@@ -31,7 +31,7 @@ router.get('/',U.isLoggedIn, function(req,res){
 
 // router.get('/cart', U.isLoggedIn, function(req,res){
 router.get('/cart', function(req,res){
-    res.render('Checkout/Cart', {user: "Aaron" }); // req.user });
+    res.render('Checkout/Cart', {user: req.user });
 });
 
 router.post('/checkout', U.isLoggedIn, function (req, res){
@@ -45,8 +45,6 @@ router.post('/checkout', U.isLoggedIn, function (req, res){
       checkedIn: moment().add(21, 'days').calendar()
     });
 
-        // console.log("amount of books being saved: " + booksArr.length + " isbn of book(" + i +") :" + booksArr[i]);
-    // console.log(checkout.checkedOut);
     checkout.save(function (err){
       if(err) throw err;
 

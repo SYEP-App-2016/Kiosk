@@ -2,7 +2,7 @@ var bookCheckouts = [];
 
 $(document).ready(function(){
 
-var num = 1;
+var num = 0;
 var v;
 var pressed = false;
 var chars = [];
@@ -16,7 +16,7 @@ $(".addBook").click(function(){
 
 function addSection(){
 
-  if(bookCheckouts.length >= 2){
+  if(bookCheckouts.length >= 3){
     alert(11);
     console.log("Too many books!");
   } else {
@@ -51,7 +51,6 @@ function addSection(){
     </div>';
 
     $(".row1").append(b);
-    num++;
  }
 
 }
@@ -76,21 +75,27 @@ function processData(results){
 
   var a = results.results;
 
-    $('.title' + num).text(a.title);
-    $('.author' + num).text(a.author);
-    $('.image' + num).attr("src", a.img);
-
-    // $('#osis').val($("#user").text());
-
     if(a.isbn == $("#checkout").val()) {
       console.log("MATCH");
     } else {
       console.log("NOT");
-      console.log($("#checkout").val() + " " + a.isbn );
     }
+    if(bookCheckouts.includes(a.isbn)){
+      console.log("Book already in cart!");
+    }else{
+      bookCheckouts.push(a.isbn);
+      $('.title' + num).text(a.title);
+      $('.author' + num).text(a.author);
+      $('.image' + num).attr("src", a.img);
+      for(var i = 0; i < bookCheckouts.length;i++){
+        if($("#booksArr" + i).val() == bookCheckouts[i]){
 
-    bookCheckouts.push(a.isbn);
-
+        }else{
+          $(".dvSkills").append("<input id= 'booksArr" + num +"' name='booksArr[]' value='"+bookCheckouts[i] + "' style='display: none;' />");
+        }
+      }
+      num++;
+    }
     reset();
 }
 
