@@ -1,23 +1,34 @@
 <% include ../header.ejs %>
+<script src="/js/checkoutList.js"></script>
 
 <div class="container">
   <% for(var i = 0; i < list.length; i++){ %>
+    <input id = "bookCount" type="number" value = "<%=list[i].isbn.length%>" style='display: none;'/>
     <% if(user.osis == list[i].osis){ %>
       <%for(var x = 0; x < list[i].isbn.length; x++){%>
-        <div class="row">
+    <input id = "isbn<%=x%>" type="text" value = "<%=list[i].isbn[x]%>" style='display: none;'/>
+
+
+        <div class="row book<%=x%>">
           <div class="col-sm-4 col-md-4 col-lg-4">
               <a href="#" class="thumbnail">
-                <img src="../assets/MissingCover.svg">
+                <img class = "image<%=x%>" src="">
               </a>
             </div>
-            <div class=" col-sm-8 col-md-8 col-lg-8">
+            <div class="col-sm-4 col-md-4 col-lg-4">
               <div>
                   <h1>Title:</h1>
-                     <ul><%=list[i].isbn[x]%></ul>
+                     <ul class="title<%=x%>"></ul>
                   <h1>Author:</h1>
-                     <ul>Rick Riordan</ul>
-                  <h1>Books Available:</h1>
-                     <ul>12/16 Copies</ul>
+                     <ul class="author<%=x%>"></ul>
+              </div>
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <div>
+                  <h1>Checked out on:</h1>
+                     <ul class=""><%=list[i].checkedIn%></ul>
+                  <h1>Date Due:</h1>
+                     <ul class=""><%=list[i].checkedOut%></ul>
               </div>
             </div>
           </div>
