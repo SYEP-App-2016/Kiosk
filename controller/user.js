@@ -23,10 +23,9 @@ router.post('/Login', passport.authenticate('local-login', {
 
 
 router.get('/Signup', function(req, res) {
-
    res.render('User/signUp', { message: req.flash('signupMessage') });
-
 });
+
 
 router.post('/Signup', passport.authenticate('local-signup', {
     successRedirect : '/User/Profile', // redirect to the secure profile section
