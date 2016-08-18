@@ -1,6 +1,15 @@
 <% include ../header.ejs %>
 <script src="/js/checkoutList.js"></script>
 
+<div class="jumbotron">
+  <h1>Need to checkout books?</h1>
+  <center>
+    <a href="/cart">
+    <h3>Tap here to add books to your cart!</h3>
+    </a>
+  </center>
+</div>
+<br>
 <div class="container">
   <% for(var i = 0; i < list.length; i++){ %>
     <input id = "books" type="text" value = "<%=list[i].isbn%>" style='display: none;'/>
@@ -11,7 +20,7 @@
         <input id = "isbn<%=x%>" type="text" value = "<%=list[i].isbn[x]%>" style='display: none;'/>
 
 
-        <div class="row book<%=x%>">
+        <div class="row book<%=x%> check2">
           <div class="col-sm-4 col-md-4 col-lg-4">
               <a href="#" class="thumbnail">
                 <img class = "image<%=x%>" src="">

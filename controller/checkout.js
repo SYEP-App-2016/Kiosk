@@ -40,8 +40,8 @@ router.post('/Checkout', U.isLoggedIn, function (req, res){
     var checkout = new Checkout({
       isbn: posted.booksArr,
       osis: posted.osis,
-      checkedOut: moment().format("MMM Do YY"),
-      checkedIn: moment().add(21, 'days').calendar()
+      checkedOut: moment().format("dddd, MMM Do YYYY"),
+      checkedIn: moment().add(14, 'days').format("dddd, MMM Do YYYY")
     });
 
     checkout.save(function (err){
@@ -49,7 +49,6 @@ router.post('/Checkout', U.isLoggedIn, function (req, res){
 
 
     });
-
   res.redirect('/Checkout');
 
 });

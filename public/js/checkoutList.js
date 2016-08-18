@@ -15,7 +15,7 @@ $(".confirm").hide();
       gBooks = books;
 
   function makeRequest(isbn,num){
-    var endPoint = "http://localhost:8080/book/api/book/" + isbn;
+    var endPoint = "/API/book/" + isbn;
         // console.log(endPoint);
 
     $.getJSON(endPoint, function(data){

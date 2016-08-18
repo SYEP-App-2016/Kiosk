@@ -28,16 +28,14 @@
     <% } %>
 
     <!-- LOGIN FORM -->
-    <form action="/User/Signup" method="post">
+    <form action="/User/Login" method="post">
         <div class="form-group">
-            <label>Email</label>
+            <label>Scan OSIS barcode to log in!</label>
             <input type="text" class="form-control" name="osis">
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="text" class="form-control" name="cid">
-        </div>
-
+            <input type="hidden" class="form-control" name="cid" value="1">
+          </div>
         <button type="submit" class="btn btn-warning btn-lg">Signup</button>
     </form>
 

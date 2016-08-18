@@ -20,7 +20,7 @@ footer{
 body {
      /* padding-top: 50px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
      margin-top:20px;
-     background-color:#b3daff;
+     /*background-color:#b3daff;*/
 }
 
 .img-portfolio {
@@ -35,6 +35,7 @@ body {
 
 header.carousel {
     height: 50%;
+    box-shadow:15px -15px 30px 1px black;
 }
 
 header.carousel .item,
@@ -164,7 +165,8 @@ body,ul,li{
 
 ul, li{
     list-style: none;
-    color: #ED1ABB;
+    /*color: #ED1ABB;*/
+    font-size:24px;
 }
 a{
     font-size:20px;
@@ -182,6 +184,42 @@ nav .search{
 }
 nav .checkout{
     color: maroon;
+}
+
+.check{
+  background-color:#66b3ff;
+  margin:100px;
+  padding:2%;
+}
+
+.check2{
+  background-color:#66b3ff;
+  margin-bottom:75px;
+  margin-top:75px;
+  padding:2%;
+}
+
+#checkout{
+  width:100%;
+  height:50px;
+  font-size:36px;
+}
+
+.jumbotron{
+  margin-top:15px;
+  background-color:#66b3ff;
+}
+
+.jumbotron a{
+  color:black;
+}
+
+.title{
+  font-size:26px;
+}
+
+.author{
+  font-size:26px;
 }
 
 nav a:hover{

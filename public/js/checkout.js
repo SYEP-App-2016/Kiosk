@@ -21,8 +21,8 @@ function addSection(){
     console.log("Too many books!");
   } else {
 
-    var b = '<div class="row">\
-        <div class="checkOut">\
+    var b = '<div class="row check">\
+        <div>\
             <div class="col-sm-3 col-md-3">\
                  <a href="#" class="thumbnail">\
                   <img class = "image' + num +'" src="">\
@@ -31,9 +31,9 @@ function addSection(){
               <div class="info">\
                   <div class="col-sm-6 col-md-6">\
                     <h1>Title:</h1>\
-                    <div class = "title'+num+'" type="text"></div>\
+                    <div class = "title'+num+' title" type="text"></div>\
                     <h1> Author: </h1>\
-                    <div class = "author'+num+'" type="text"></div>\
+                    <div class = "author'+num+' author" type="text"></div>\
                   </div>\
                   <div class="col-sm-3 col-md-3">\
                     <button type="button" class="btn btn-default btn-lg " aria-label="Left Align">\
