@@ -6,7 +6,7 @@ var v;
     var chars = [];
 
 
-    $(window).keypress(function(e) {
+    $(window).change(function(e) {
 
         if (e.which >= 48 && e.which <= 57) {
             chars.push(String.fromCharCode(e.which));

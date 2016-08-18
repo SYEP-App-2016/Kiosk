@@ -30,7 +30,7 @@ $(".confirm").hide();
     $('.title' + num).text(a.title);
     $('.author' + num).text(a.author);
     $('.isbn' + num).text(a.isbn);
-    $('.image' + num).attr("src", a.img);
+    $('.image' + num).attr("src", a.sImg);
 
   }
 

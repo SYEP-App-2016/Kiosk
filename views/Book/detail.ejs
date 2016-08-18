@@ -12,7 +12,7 @@
 </ol>
 
 
-<div class="container">
+<div class="container c3">
 
 
 <div class="row">
@@ -22,7 +22,7 @@
   <%}else{%>
     <img class="pic img-responsive" src="<%=img%>" alt="Responsive image"></div>
   <%}%>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 info2">
 
     <h1><%=title%></h1>
     <h2><%=author%></h2>
@@ -35,14 +35,14 @@
     <% if(summary == ""){ %>
       <p>Summary not available</p>
     <%}else{%>
-      <p><%=summary%></p>
+      <p class="summary"><%=summary%></p>
     <%}%>
     <h3>Book Details</h3>
     <ul>
       <% if(pageCount == null){ %>
       <li>Paperback, Page count unavailable</li>
       <%}else{%>
-      <li>Paperback, <%=pageCount%></li>
+      <li>Paperback, <%=pageCount%> pages</li>
       <%}%>
     </ul>
 
@@ -95,7 +95,6 @@
         <input name="title" type="String" class="form-control" value="<%=title%>" style='display: none;'/>
         <input name="author" type="String" class="form-control" value="<%=author%>" style='display: none;'/>
         <input name="desc" type="String" class="form-control" value="<%=summary%>" style='display: none;'/>
-        <input class="btn btn-default btn-warning" type="submit" value="Checkout">
       </form>
 
 

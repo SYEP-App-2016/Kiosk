@@ -10,13 +10,40 @@
     width: 125px;
 }
 
-footer{
+/*footer{
   position:relative;
   top:0;
   left:45%;
-}
+}*/
 
 /* TEMPLATE */
+
+.summary{
+  /*white-space: nowrap;*/
+overflow: hidden;
+text-overflow: ellipsis;
+/*max-width: 100%;*/
+max-height:200px;
+}
+
+.c4{
+  background-color:#66b3ff;
+  border-radius:10px;
+  margin:5px;
+  box-shadow:6px 9px 30px 1px black;
+}
+
+.c5{
+  background-color:#66b3ff;
+  border-radius:10px;
+  padding:-20px;
+  box-shadow:6px 9px 30px 1px black;
+}
+
+.c4 a{
+  color:black;
+}
+
 body {
      /* padding-top: 50px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
      margin-top:20px;
@@ -51,6 +78,12 @@ header.carousel .fill {
     background-size: cover;
 }
 
+.c3{
+  padding-top:15px;
+  background-color:#66b3ff;
+  border-radius:5px;
+  /*margin*/
+}
 /* 404 Page Styles */
 
 .error-404 {
@@ -111,12 +144,21 @@ footer {
 .pic {
   width: 250px;
   height: 400px;
+  box-shadow:5px 5px 0px 2px white;
+  border-radius:10px;
 }
 
 .barcode{
   width:100%;
   height:40px;
   font-size: 26px;
+}
+
+.info2{
+  right:150px;
+  background-color:white;
+  padding:10px;
+  border-radius:10px;
 }
 
 @font-face {
@@ -253,6 +295,7 @@ nav{
     background: #fff;
     transition: all 0.5s;
     font-family: arial;
+    z-index:3;
 }
 nav > ul{
     max-width: 900px;

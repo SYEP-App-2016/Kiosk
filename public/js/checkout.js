@@ -83,7 +83,7 @@ function processData(results){
       bookCheckouts.push(a.isbn);
       $('.title' + num).text(a.title);
       $('.author' + num).text(a.author);
-      $('.image' + num).attr("src", a.img);
+      $('.image' + num).attr("src", a.sImg);
       for(var i = 0; i < bookCheckouts.length;i++){
         if($("#booksArr" + i).val() == bookCheckouts[i]){
 

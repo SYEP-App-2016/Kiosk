@@ -7,7 +7,7 @@ module.exports = {
         console.log(req.user);
         if(req.isAuthenticated())
             return next();
-        res.redirect('user/login');
+        res.redirect('user/signup');
     }
 };
 
