@@ -52,7 +52,7 @@ router.post('/Add', function (req, res){
 
 // RETRIEVE
 //retrieves documents and sets index
-/*
+
 router.get('/', function(req,res){
 
   Book.find({}, function (err,books){
@@ -64,7 +64,7 @@ router.get('/', function(req,res){
   });
 
 });
-*/
+
 
 /* REMOVING IN NEXT UPDATE */
 router.get('/API/Book/:isbn', function(req,res){
