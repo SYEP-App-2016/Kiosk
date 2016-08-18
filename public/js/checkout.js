@@ -101,7 +101,7 @@ function reset(){
 }
 
 function makeRequest(isbn){
-  var endPoint = "/API/book/" + isbn;
+  var endPoint = "/API/Book/" + isbn;
       console.log(endPoint);
 
       // isbnVal = $("#checkout" + count).val(),
