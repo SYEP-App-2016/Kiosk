@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link type="text/css" href="../public/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="../public/js/jquery.js"></script>
+  <script src="../public/assets/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+   
+
+    <div class="container"> 
+        
+        Welcome user <p id="user"><%=user.osis%></p>
+        
+        <!-- button>Click </button -->
+        <input type="text" class="form-control" name="tbIsbn" id="tbIsbn" 
+               style="max-width: 300px; margin-bottom: 3em;" placeholder="Scan or Type Barcode"  />
+            
+            <hr />
+        <div class="row"></div>
+    </div>
+
+
+    <script>
+
+        $("#tbIsbn").change(function(){
+            populateFields(_img, _ctxt, counter++);
+        });
+
+        var counter = 0,
+            isbnCollection = [];
+
+        var _img = {
+            src: 'http://randomc.net/image/Sailor%20Moon%20Crystal/Sailor%20Moon%20Crystal%20-%2007%20-%2015.jpg',
+            alt: 'Some random Image',
+            style: 'height: 100px; width: 100px; border: solid 1px gray;'
+        };
+
+        var btn = '<button type="button" class="btn btn-default btn-lg" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button><button type="button" class="btn btn-default btn-lg " aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
+        var _ctxt = {
+            heading: "Media Heading",
+            content: "This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. "
+        };
+
+        function populateFields(img, body, count){
+            
+            $('<div/>', {
+                id: 'dvBook-' + (count),
+                class: 'media'
+            }).append( $('<div/>', {
+                id: 'dvMedia',
+                class: 'media-left'
+            }).append($('<a/>', {
+                href: "#"
+            }).append($('<img/>', {
+                class: 'media-object',
+                src: img.src,
+                alt: img.alt,
+                style: img.style
+            })))).append( $("<div/>", {
+                class: 'media-body'
+            }).append($("<h4/>",{
+                class: "media-heading",
+                // text: body.heading
+                text: body.heading + " - " + count
+            })).append( $("<p/>", {
+                style: "width: 80%",
+                html: body.content
+            })).append( $("<div/>", {
+                class: "pull-right",
+                html: '<button type="button" class="btn btn-default btn-lg pull-right" aria-label="Confirm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button><button type="button" class="btn btn-default btn-lg" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'
+            }) )).appendTo(".row");
+        }
+
+        $("button").click(function(){
+            populateFields(_img, _ctxt, counter++);
+
+        });
+
+    </script>
+</body>
+</html>
