@@ -16,8 +16,7 @@ router.get('/index', function(req,res){
 
 
 // STUDENT LOGIN VIA SCAN OR STUDENTID
-
-router.get('/',U.isLoggedIn, function(req,res){
+router.get('/', U.isLoggedIn, function(req,res){
   Checkout.find({}, function (err,books){
     console.log(books);
     if(err){console.log('Books not found??? ' + err);}
@@ -30,11 +29,11 @@ router.get('/',U.isLoggedIn, function(req,res){
 
 
 // router.get('/cart', U.isLoggedIn, function(req,res){
-router.get('/cart', function(req,res){
+router.get('/Cart', function(req,res){
     res.render('Checkout/Cart', {user: req.user });
 });
 
-router.post('/checkout', U.isLoggedIn, function (req, res){
+router.post('/Checkout', U.isLoggedIn, function (req, res){
   var posted = req.body;
 
 
@@ -51,11 +50,11 @@ router.post('/checkout', U.isLoggedIn, function (req, res){
 
     });
 
-  res.redirect('/checkout');
+  res.redirect('/Checkout');
 
 });
 
-router.post('/deleteCheckouts', function (req,res){
+router.post('/DeleteCheckouts', function (req,res){
   Checkout.find({}, function(err, checkout) {
     if (err) throw err;
 
@@ -67,19 +66,18 @@ router.post('/deleteCheckouts', function (req,res){
   });
 });
 
-router.post('/returnBook', function(req,res){
 
 
-Checkout.findOneAndUpdate( {},
-  {
-    $set: {
-      isbn: req.body.booksArr
-    }
-  }, function(err, checkout) {
-      if (err) throw err;
+router.post('/ReturnBook', function(req,res){
 
-      res.redirect('/checkout');
+  Checkout.findOneAndUpdate( {},
+    { $set: {
+        isbn: req.body.booksArr
+      }
+    }, function(err, checkout) {
+        if (err) throw err;
 
+        res.redirect('/Checkout');
   });
 
 });

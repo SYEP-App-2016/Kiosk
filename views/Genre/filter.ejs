@@ -1,0 +1,24 @@
+<% include ../header.ejs %>
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+<nav>
+    <h1>Section</h1><div class="dvLettersSection"></div>
+<nav>
+
+<script>
+    var l = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    var links = "";
+
+    l.forEach(function(letter){
+        links += "<a href='" + letter + "' >" + letter + "</a> | ";
+    });
+
+    function updateHTML(el, context){
+        $(el).html = context;
+    }
+
+    updateHTML(".dvLettersSection", links);
+</script>
+
+
+<% include ../footer.ejs %>

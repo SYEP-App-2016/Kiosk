@@ -40,8 +40,6 @@ router.post('/Add', function (req, res){
     isbn : posted.isbn
   });
 
-
-
   book.save(function (err){
     if(err) throw err;
 
@@ -54,8 +52,8 @@ router.post('/Add', function (req, res){
 
 // RETRIEVE
 //retrieves documents and sets index
+/*
 router.get('/', function(req,res){
-
 
   Book.find({}, function (err,books){
     if(err){console.log('Books not found??? ' + err);}
@@ -65,10 +63,11 @@ router.get('/', function(req,res){
     });
   });
 
-
 });
+*/
 
-router.get('/api/book/:isbn', function(req,res){
+/* REMOVING IN NEXT UPDATE */
+router.get('/API/Book/:isbn', function(req,res){
   Book.find({isbn: req.params.isbn }, function(err, book){
     b = book[0];
     res.send({ results: b });
@@ -164,17 +163,18 @@ router.get('/index', function(req,res){
   res.render('./_index');
 });
 
-router.post('/deleteBooks', function (req,res){
+router.post('/DeleteBooks', function (req,res){
   Book.find({}, function(err, book) {
     if (err) throw err;
 
     // delete him
     Book.remove(function(err) {
       if (err) throw err;
-      res.redirect('/book/add');
+      res.redirect('/Book/Add');
     });
   });
 });
+
 
 
 

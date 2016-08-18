@@ -45,10 +45,17 @@ app.use(passport.session());
 
 // Routes
 app.use('/', require('./controller/index'));
-app.use('/Book', require('./controller/book'));
 app.use('/User', require('./controller/user'));
 app.use('/Checkout', require('./controller/checkout'));
 
+// SPECIFIC TO BOOKS
+app.use('/Book', require('./controller/book'));
+
+// GENERAL LISTING OF ALL BOOKS
+app.use('/Library', require('./controller/library'))
+
+// API FOR JSON / DATA ONLY!
+app.use('/API', require('./controller/api.js'))
 
 
 // ADMINISTRATION SECTION

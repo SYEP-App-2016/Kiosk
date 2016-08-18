@@ -42,7 +42,7 @@
         var btn = '<button type="button" class="btn btn-default btn-lg" aria-label="Left Align"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button><button type="button" class="btn btn-default btn-lg " aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>';
         var _ctxt = {
             heading: "Media Heading",
-            content: "This is some content. <button>HI</button> This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. " + btn
+            content: "This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. This is some content. "
         };
 
         function populateFields(img, body, count){
@@ -67,8 +67,12 @@
                 // text: body.heading
                 text: body.heading + " - " + count
             })).append( $("<p/>", {
+                style: "width: 80%",
                 html: body.content
-            }))).appendTo(".row");
+            })).append( $("<div/>", {
+                class: "pull-right",
+                html: '<button type="button" class="btn btn-default btn-lg pull-right" aria-label="Confirm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button><button type="button" class="btn btn-default btn-lg" aria-label="Left Align"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>'
+            }) )).appendTo(".row");
         }
 
         $("button").click(function(){

@@ -14,5 +14,16 @@ router.get('/Book/:isbn', function(req,res){
 });
 
 
+router.get('/Genre', function(req,res){
+  Book.find({}, {
+    genre: 1
+  }, function(err, data){
+    if(err) throw err;
+
+    console.log(data.length);
+    res.send({ results: data });
+  });
+});
+
 
 module.exports = router;
