@@ -26,9 +26,6 @@ function addSection(){
             <div class="col-sm-3 col-md-3">\
                  <a href="#" class="thumbnail">\
                   <img class = "image' + num +'" src="">\
-                  <center>\
-                    <input id="checkout' + num +'"  type="text" placeholder="barcode scan"/>\
-                  </center>\
                   </a>\
             </div>\
               <div class="info">\
