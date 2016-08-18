@@ -20,7 +20,7 @@ router.get('/', function(req, res){
 });
 
 
-router.get('/Library/:genre', function(req, res){
+router.get('/:genre', function(req, res){
   
   Book.find({ genre: req.params.genre }, function(err, data){
     if (err) { throw err; }
