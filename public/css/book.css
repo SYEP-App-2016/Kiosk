@@ -20,6 +20,7 @@ footer{
 body {
      /* padding-top: 50px; Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
      margin-top:20px;
+     background-color:#b3daff;
 }
 
 .img-portfolio {
@@ -156,7 +157,7 @@ footer {
 body,ul,li{
     padding: ;
     margin: 0;
-    background-color:white;
+    /*background-color:white;*/
 
 
 }
