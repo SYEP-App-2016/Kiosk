@@ -328,3 +328,8 @@ nav .email-form form button{
   padding:2%;
   z-index:2;
 }
+
+
+.line a:hover {
+    text-decoration: none;
+}
