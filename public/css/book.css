@@ -324,4 +324,5 @@ nav .email-form form button{
   height:50%;
   box-shadow:3px 3px 10px 1px #56BAEC;
   padding:2%;
+  z-index:2;
 }

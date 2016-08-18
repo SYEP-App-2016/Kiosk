@@ -3,10 +3,12 @@
 
 <div class="container">
   <% for(var i = 0; i < list.length; i++){ %>
+    <input id = "books" type="text" value = "<%=list[i].isbn%>" style='display: none;'/>
     <input id = "bookCount" type="number" value = "<%=list[i].isbn.length%>" style='display: none;'/>
     <% if(user.osis == list[i].osis){ %>
       <%for(var x = 0; x < list[i].isbn.length; x++){%>
-    <input id = "isbn<%=x%>" type="text" value = "<%=list[i].isbn[x]%>" style='display: none;'/>
+
+        <input id = "isbn<%=x%>" type="text" value = "<%=list[i].isbn[x]%>" style='display: none;'/>
 
 
         <div class="row book<%=x%>">
@@ -26,26 +28,30 @@
             <div class="col-sm-4 col-md-4 col-lg-4">
               <div>
                   <h1>Checked out on:</h1>
-                     <ul class=""><%=list[i].checkedIn%></ul>
-                  <h1>Date Due:</h1>
                      <ul class=""><%=list[i].checkedOut%></ul>
+                  <h1>Date Due:</h1>
+                     <ul class=""><%=list[i].checkedIn%></ul>
               </div>
             </div>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default btn<%=x%>">
                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
-          </div>
-          <div class="overlay">
-            <h1>Returning a book?</h1><br>
-             <h4>&nbsp;&nbsp;&nbsp;Scan the barcode on the book to return it!</h4>
-               <input id="checkout" type="text" placeholder="barcode scan" onblur="setFocus()"/>
           </div>
 
       <%}%>
     <%}%>
   <%}%>
 
+  <div class="overlay">
+    <h1>Returning a book?</h1><br>
+     <h4>&nbsp;&nbsp;&nbsp;Scan the barcode on the book to return it!</h4>
+       <input id="checkout" type="text" placeholder="barcode scan" onblur="setFocus()"/>
 
+       <form action = "returnBook" method = "POST">
+         <div class="dvSkills"></div>
+         <input class="btn btn-default confirm" type="submit" value="Confirm">
+       </form>
+  </div>
 
 
 </div>
