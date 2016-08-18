@@ -1,7 +1,7 @@
 var express = require('express'),
    app = express(),
    mongoose = require('mongoose'),
-   port = process.env.PORT || 8000,
+   port = process.env.PORT || 8080,
    database = require('./config/database.js'),
    morgan = require('morgan'),
    bodyParser = require('body-parser'),

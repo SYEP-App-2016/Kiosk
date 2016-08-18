@@ -1,0 +1,41 @@
+.brow{
+  margin-left:11px;
+}
+
+.book{
+  white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+max-width: 100%;
+}
+
+.selection h2{
+  color:black;
+}
+
+.selection h5{
+  color:black;
+}
+
+.selection{
+  background-color:grey;
+  border-radius:10px;
+  margin:5px;
+  box-shadow:6px 3px 10px 1px black;
+}
+
+
+
+.space{
+  margin-left:5%;
+  margin-right:5%;
+}
+
+.img {
+    width: 50%;
+    height: auto;
+}
+
+.block{
+  height:250px;
+}

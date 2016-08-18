@@ -26,6 +26,7 @@ body {
     margin-bottom: 30px;
 }
 
+
 .img-hover:hover {
     opacity: 0.8;
 }
@@ -312,4 +313,17 @@ nav .email-form form button{
 
 .glyphicon {
   font-size:40px;
+}
+
+.overlay{
+  position:absolute;
+  width:50%;
+  top:25%;
+  left:30%;
+  background-color:lightblue;
+  border-radius:10px;
+  height:50%;
+  box-shadow:3px 3px 10px 1px #56BAEC;
+  padding:2%;
+  z-index:2;
 }

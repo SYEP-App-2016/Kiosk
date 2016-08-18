@@ -67,4 +67,24 @@ router.post('/deleteCheckouts', function (req,res){
   });
 });
 
+router.post('/returnBook', function(req,res){
+
+
+Checkout.findOneAndUpdate( {},
+  {
+    $set: {
+      isbn: req.body.booksArr
+    }
+  }, function(err, checkout) {
+      if (err) throw err;
+
+      res.redirect('/checkout');
+
+  });
+
+});
+
+
+
+
 module.exports = router;

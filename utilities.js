@@ -7,14 +7,8 @@ module.exports = {
         console.log(req.user);
         if(req.isAuthenticated())
             return next();
-        res.redirect('/');
-    },
-    isLoggedIn2: function(req, res, next){
-        console.log(req.user);
-        if(req.isAuthenticated())
-            return next();
-        res.redirect('/Profile');
-    },
+        res.redirect('user/login');
+    }
 };
 
 // function makeRequest(_method, _url, _params, callback){

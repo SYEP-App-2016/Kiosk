@@ -109,15 +109,6 @@ router.get('/Details/:id', function(req,res){
 // INDUSTRY STANDARD
 router.get('/Edit/:id', function(req,res){
 
-  // var o = {
-  //     g: []
-  //   };
-  //
-  // Genre.find({}, function(err,genre){
-  //   if(err) throw err;
-  //   console.log(genre);
-  //   o.g = genre;
-  // });
 
   Book.find( {_id: new ObjectId(req.params.id) }, function(err, book){
     res.render('Book/edit', {
