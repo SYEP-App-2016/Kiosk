@@ -101,7 +101,7 @@ function reset(){
 }
 
 function makeRequest(isbn){
-  var endPoint = "http://localhost:8080/book/api/book/" + isbn;
+  var endPoint = "/API/book/" + isbn;
       console.log(endPoint);
 
       // isbnVal = $("#checkout" + count).val(),
