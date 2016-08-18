@@ -24,7 +24,9 @@ max-width: 100%;
   box-shadow:6px 9px 30px 1px black;
 }
 
-
+body{
+  background-color:#b3daff;
+}
 
 .space{
   margin-left:5%;
