@@ -81,6 +81,11 @@ router.post('/ReturnBook', function(req,res){
 
 });
 
+router.get('/logout', function(req, res) {
+   req.logout();
+   res.redirect('/user/signup');
+});
+
 
 
 

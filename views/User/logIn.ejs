@@ -1,12 +1,12 @@
 <% include ../header.ejs %>
 
-<h1>Log in</h1>
+<h1>Sign up</h1>
 
 <div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
+    <h1><span class="fa fa-sign-in"></span> Sign Up</h1>
 
     <!-- show any messages that come back with authentication -->
     <% if (message.length > 0) { %>
@@ -16,19 +16,19 @@
     <!-- LOGIN FORM -->
     <form action="/User/Signup" method="POST">
         <div class="form-group">
-            <label>Scan your OSIS to log in!</label>
+            <label>Scan your OSIS to sign up</label>
             <input type="text" class="form-control" name="osis">
         </div>
             <input type="hidden" class="form-control" name="cid" value="1">
 
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        <button type="submit" class="btn btn-warning btn-lg">Sign up</button>
     </form>
 
     <hr>
 
-    <p>Need an account? <a href="/User/Signup">Signup</a></p>
+    <p>Already have an account? <a href="/User/Signup">Signup</a></p>
     <p>Or go <a href="/">Home</a>.</p>
 
 </div>
-
+</div>
 <% include ../footer.ejs %>

@@ -13,8 +13,8 @@ router.get('/Login', function(req, res) {
 
 
 router.post('/Login', passport.authenticate('local-login', {
-    successRedirect : '/User/Profile', // redirect to the secure profile section
-    failureRedirect : '/User/Login', // redirect back to the signup page if there is an error
+    successRedirect : '/Checkout', // redirect to the secure profile section
+    failureRedirect : '/User/Signup', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
 // LOGIN ENDS
@@ -28,8 +28,8 @@ router.get('/Signup', function(req, res) {
 
 
 router.post('/Signup', passport.authenticate('local-signup', {
-    successRedirect : '/User/Profile', // redirect to the secure profile section
-    failureRedirect : '/User/Signup', // redirect back to the signup page if there is an error
+    successRedirect : '/User/Signup', // redirect to the secure profile section
+    failureRedirect : '/User/Login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
 
@@ -41,10 +41,7 @@ router.get('/Profile',U.isLoggedIn, isLoggedIn, function(req, res) {
     });
 });
 
-router.get('/logout', function(req, res) {
-   req.logout();
-   res.redirect('/login');
-});
+
 
 
 function isLoggedIn(req, res, next) {

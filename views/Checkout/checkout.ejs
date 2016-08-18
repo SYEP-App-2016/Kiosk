@@ -8,47 +8,51 @@
     <h3>Tap here to add books to your cart!</h3>
     </a>
   </center>
+  <br>
+  <a href="/checkout/logout" class="btn btn-default btn-sm">Logout</a>
 </div>
 <br>
 <div class="container">
   <% for(var i = 0; i < list.length; i++){ %>
+    <% if(list[i].isbn.length !== null || undefined){%>
     <input id = "books" type="text" value = "<%=list[i].isbn%>" style='display: none;'/>
     <input id = "bookCount" type="number" value = "<%=list[i].isbn.length%>" style='display: none;'/>
     <% if(user.osis == list[i].osis){ %>
-      <%for(var x = 0; x < list[i].isbn.length; x++){%>
 
-        <input id = "isbn<%=x%>" type="text" value = "<%=list[i].isbn[x]%>" style='display: none;'/>
+        <%for(var x = 0; x < list[i].isbn.length; x++){%>
+
+          <input id = "isbn<%=x%>" type="text" value = "<%=list[i].isbn[x]%>" style='display: none;'/>
 
 
-        <div class="row book<%=x%> check2">
-          <div class="col-sm-4 col-md-4 col-lg-4">
-              <a href="#" class="thumbnail">
-                <img class = "image<%=x%>" src="">
-              </a>
-            </div>
+          <div class="row book<%=x%> check2">
             <div class="col-sm-4 col-md-4 col-lg-4">
-              <div>
-                  <h1>Title:</h1>
-                     <ul class="title<%=x%>"></ul>
-                  <h1>Author:</h1>
-                     <ul class="author<%=x%>"></ul>
+                <a href="#" class="thumbnail">
+                  <img class = "image<%=x%>" src="">
+                </a>
               </div>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <div>
-                  <h1>Checked out on:</h1>
-                     <ul class=""><%=list[i].checkedOut%></ul>
-                  <h1>Date Due:</h1>
-                     <ul class=""><%=list[i].checkedIn%></ul>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <div>
+                    <h1>Title:</h1>
+                       <ul class="title<%=x%>"></ul>
+                    <h1>Author:</h1>
+                       <ul class="author<%=x%>"></ul>
+                </div>
               </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <div>
+                    <h1>Checked out on:</h1>
+                       <ul class=""><%=list[i].checkedOut%></ul>
+                    <h1>Date Due:</h1>
+                       <ul class=""><%=list[i].checkedIn%></ul>
+                </div>
+              </div>
+              <button type="button" class="btn btn-default btn<%=x%>">
+                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              </button>
             </div>
-            <button type="button" class="btn btn-default btn<%=x%>">
-               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            </button>
-          </div>
-
+          <%}%>
+        <%}%>
       <%}%>
-    <%}%>
   <%}%>
 
   <div class="overlay">
